@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gj7-NN-GNi">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Select Student View Controller-->
+        <scene sceneID="ofJ-51-rv1">
+            <objects>
+                <viewController storyboardIdentifier="AFSelectStudent" id="Gj7-NN-GNi" customClass="AFSelectStudentViewController" customModule="Mephi22" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5gw-NZ-G6h">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V80-ky-8XP">
+                                <rect key="frame" x="0.0" y="50" width="320" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Aa8-eq-kri"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNk-QN-0HR">
+                                <rect key="frame" x="16" y="28" width="288" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="R04-a1-HMs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ot4-Kq-waa">
+                                <rect key="frame" x="16" y="250" width="288" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="6jY-4U-4hZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sWQ-Ex-zHB">
+                                <rect key="frame" x="0.0" y="272" width="320" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="JSQ-pV-r6y"/>
+                                </constraints>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRk-rT-Re8" customClass="RoundedUIButton" customModule="Mephi22" customModuleProvider="target">
+                                <rect key="frame" x="110" y="472" width="100" height="25"/>
+                                <color key="backgroundColor" red="0.18690097115602947" green="0.87229058718601038" blue="0.58704279042278207" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="55j-kh-j1L"/>
+                                    <constraint firstAttribute="width" constant="100" id="y5j-VZ-Fbm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="jdo-KL-KRc" kind="presentation" id="gGp-27-ldE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bze-dt-gdH" firstAttribute="trailing" secondItem="eNk-QN-0HR" secondAttribute="trailing" constant="16" id="4e8-D1-4c4"/>
+                            <constraint firstAttribute="trailing" secondItem="Ot4-Kq-waa" secondAttribute="trailing" constant="16" id="FJV-Ni-4ZR"/>
+                            <constraint firstItem="V80-ky-8XP" firstAttribute="top" secondItem="eNk-QN-0HR" secondAttribute="bottom" id="HUe-oj-06a"/>
+                            <constraint firstItem="Ot4-Kq-waa" firstAttribute="leading" secondItem="bze-dt-gdH" secondAttribute="leading" constant="16" id="Vol-1W-TPt"/>
+                            <constraint firstItem="Ot4-Kq-waa" firstAttribute="top" secondItem="V80-ky-8XP" secondAttribute="bottom" id="WFP-Zp-sUK"/>
+                            <constraint firstItem="sWQ-Ex-zHB" firstAttribute="leading" secondItem="bze-dt-gdH" secondAttribute="leading" id="h9s-eW-aCZ"/>
+                            <constraint firstItem="BRk-rT-Re8" firstAttribute="top" secondItem="sWQ-Ex-zHB" secondAttribute="bottom" id="hLc-cr-QAb"/>
+                            <constraint firstItem="V80-ky-8XP" firstAttribute="trailing" secondItem="bze-dt-gdH" secondAttribute="trailing" id="kXS-fh-9pA"/>
+                            <constraint firstItem="sWQ-Ex-zHB" firstAttribute="trailing" secondItem="bze-dt-gdH" secondAttribute="trailing" id="lgw-fQ-XjV"/>
+                            <constraint firstItem="sWQ-Ex-zHB" firstAttribute="top" secondItem="Ot4-Kq-waa" secondAttribute="bottom" id="mEp-ox-GSq"/>
+                            <constraint firstItem="eNk-QN-0HR" firstAttribute="top" secondItem="bze-dt-gdH" secondAttribute="top" constant="8" id="mFW-Gp-GV8"/>
+                            <constraint firstItem="eNk-QN-0HR" firstAttribute="leading" secondItem="bze-dt-gdH" secondAttribute="leading" constant="16" id="srX-Gg-h7F"/>
+                            <constraint firstItem="BRk-rT-Re8" firstAttribute="centerX" secondItem="bze-dt-gdH" secondAttribute="centerX" id="vBG-MJ-0NI"/>
+                            <constraint firstItem="V80-ky-8XP" firstAttribute="leading" secondItem="bze-dt-gdH" secondAttribute="leading" id="y20-Cg-bWX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bze-dt-gdH"/>
+                    </view>
+                    <connections>
+                        <outlet property="selectGroupPicker" destination="V80-ky-8XP" id="Pus-xZ-VtV"/>
+                        <outlet property="selectStudentPicker" destination="sWQ-Ex-zHB" id="56A-ao-nWe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yU7-sN-87x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-60" y="142"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="KTM-kQ-Qms">
+            <objects>
+                <viewController id="jdo-KL-KRc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BAn-gu-ybr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="3eQ-yE-qhk"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C1A-Y8-6cL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="860" y="142"/>
+        </scene>
+    </scenes>
+</document>
