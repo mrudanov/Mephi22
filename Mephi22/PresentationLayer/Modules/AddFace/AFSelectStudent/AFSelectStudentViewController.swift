@@ -28,14 +28,17 @@ class AFSelectStudentViewController: UIViewController {
         selectStudentVC.studentsDataSource = studentsDataSource
         return selectStudentVC
     }
-    
+        
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.largeTitleDisplayMode = .never
         navigationItem.title = "Add Face"
+        
         groupsDataSource?.delegate = self
         studentsDataSource?.delegate = self
         groupsDataSource?.getGroups()
+        
         HUD.show(.progress)
         setupPickers()
     }
