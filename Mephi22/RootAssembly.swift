@@ -18,6 +18,7 @@ class RootAssembly {
         requestSender = RequestSender()
         mephi22Service = Mephi22Service(requestSender: requestSender)
         addFaceAssembly = AddFaceAssembly(mephi22Service: mephi22Service)
+        deleteFacesAssembly = DeleteFacesAssembly(mephi22Service: mephi22Service)
         menuAssembly = MenuAssembly()
         mainNavigationController = menuAssembly.menuNavigationController()
     }
@@ -25,4 +26,5 @@ class RootAssembly {
     let mainNavigationController: UINavigationController
     let addFaceAssembly: AddFaceAssembly
     let menuAssembly: MenuAssembly
+    let deleteFacesAssembly: DeleteFacesAssembly
 }

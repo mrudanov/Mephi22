@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Delete Faces View Controller-->
+        <scene sceneID="N3d-T8-Sql">
+            <objects>
+                <viewController storyboardIdentifier="DeleteFacesVC" id="8Ge-SG-lZu" customClass="DeleteFacesViewController" customModule="Mephi22" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z5i-8k-1F9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uUg-v5-3VL">
+                                <rect key="frame" x="0.0" y="50" width="320" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="lKG-c2-2Q5"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdR-Kn-AdO">
+                                <rect key="frame" x="16" y="28" width="288" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="Oko-2B-Imz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select student" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4n-v4-TSC">
+                                <rect key="frame" x="16" y="250" width="288" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="Rc0-Bf-JF3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22P-Q5-ZrM">
+                                <rect key="frame" x="0.0" y="272" width="320" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="0nH-uk-Jlh"/>
+                                </constraints>
+                            </pickerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="P07-TX-s6b">
+                                <rect key="frame" x="8" y="472" width="304" height="25"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1p-yC-6Ou" customClass="RoundedUIButton" customModule="Mephi22" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="147" height="25"/>
+                                        <color key="backgroundColor" red="0.98383122839170978" green="0.39268444128167951" blue="0.36659355072233279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="DlR-zV-QhV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Delete student">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZ6-LW-e5F" customClass="RoundedUIButton" customModule="Mephi22" customModuleProvider="target">
+                                        <rect key="frame" x="157" y="0.0" width="147" height="25"/>
+                                        <color key="backgroundColor" red="0.90513951854715025" green="0.22537758522985227" blue="0.2633026606913188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="Pe3-lH-HEG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Delete group">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="22P-Q5-ZrM" firstAttribute="trailing" secondItem="ALc-oX-qOR" secondAttribute="trailing" id="0t6-3i-xd7"/>
+                            <constraint firstItem="P07-TX-s6b" firstAttribute="leading" secondItem="ALc-oX-qOR" secondAttribute="leading" constant="8" id="2Ti-GE-PDa"/>
+                            <constraint firstItem="22P-Q5-ZrM" firstAttribute="top" secondItem="l4n-v4-TSC" secondAttribute="bottom" id="4eq-CY-8Tg"/>
+                            <constraint firstItem="l4n-v4-TSC" firstAttribute="top" secondItem="uUg-v5-3VL" secondAttribute="bottom" id="5am-A0-mDe"/>
+                            <constraint firstItem="P07-TX-s6b" firstAttribute="centerX" secondItem="ALc-oX-qOR" secondAttribute="centerX" id="Bak-ZQ-Waf"/>
+                            <constraint firstItem="uUg-v5-3VL" firstAttribute="leading" secondItem="ALc-oX-qOR" secondAttribute="leading" id="GBT-tC-PdE"/>
+                            <constraint firstItem="uUg-v5-3VL" firstAttribute="trailing" secondItem="ALc-oX-qOR" secondAttribute="trailing" id="NPB-D8-oGT"/>
+                            <constraint firstItem="uUg-v5-3VL" firstAttribute="top" secondItem="qdR-Kn-AdO" secondAttribute="bottom" id="PU8-Ea-2s4"/>
+                            <constraint firstItem="qdR-Kn-AdO" firstAttribute="top" secondItem="ALc-oX-qOR" secondAttribute="top" constant="8" id="V7n-ct-LTG"/>
+                            <constraint firstItem="P07-TX-s6b" firstAttribute="top" secondItem="22P-Q5-ZrM" secondAttribute="bottom" id="Y21-yr-H73"/>
+                            <constraint firstItem="qdR-Kn-AdO" firstAttribute="leading" secondItem="ALc-oX-qOR" secondAttribute="leading" constant="16" id="hTK-9P-Ksa"/>
+                            <constraint firstItem="l4n-v4-TSC" firstAttribute="leading" secondItem="ALc-oX-qOR" secondAttribute="leading" constant="16" id="k2V-8O-TX4"/>
+                            <constraint firstItem="ALc-oX-qOR" firstAttribute="trailing" secondItem="P07-TX-s6b" secondAttribute="trailing" constant="8" id="oac-Bn-iOT"/>
+                            <constraint firstItem="ALc-oX-qOR" firstAttribute="trailing" secondItem="qdR-Kn-AdO" secondAttribute="trailing" constant="16" id="q5J-ld-2xy"/>
+                            <constraint firstAttribute="trailing" secondItem="l4n-v4-TSC" secondAttribute="trailing" constant="16" id="yVS-5N-5wt"/>
+                            <constraint firstItem="22P-Q5-ZrM" firstAttribute="leading" secondItem="ALc-oX-qOR" secondAttribute="leading" id="zs1-F1-4dd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ALc-oX-qOR"/>
+                    </view>
+                    <connections>
+                        <outlet property="selectGroupPicker" destination="uUg-v5-3VL" id="ZTy-gF-lLP"/>
+                        <outlet property="selectStudentPicker" destination="22P-Q5-ZrM" id="3X0-vI-xOu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aiY-jd-Ye8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-60" y="142"/>
+        </scene>
+    </scenes>
+</document>

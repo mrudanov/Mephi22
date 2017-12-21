@@ -9,6 +9,9 @@
 import UIKit
 
 class MenuTableViewController: UITableViewController {
+    private enum Destination {
+        case addFaces, deleteFaces, seminars, lectures
+    }
 
     // MARK: - TableView delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -16,18 +19,18 @@ class MenuTableViewController: UITableViewController {
         case 0:
             switch indexPath.row {
             case 0:
-                navigateToAddFaces()
+                navigateToNextViewController(.addFaces)
             case 1:
-                navigateToDeleteFaces()
+                navigateToNextViewController(.deleteFaces)
             default:
                 return
             }
         case 1:
             switch indexPath.row {
             case 0:
-                return
+                navigateToNextViewController(.seminars)
             case 1:
-                return
+                navigateToNextViewController(.lectures)
             default:
                 return
             }
@@ -37,22 +40,20 @@ class MenuTableViewController: UITableViewController {
     }
     
     // MARK: - Navigation
-    private func navigateToAddFaces() {
+    private func navigateToNextViewController(_ destination: Destination) {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         guard appDelegate != nil else { return }
         
-        let addFaceAssembly = appDelegate!.rootAssembly.addFaceAssembly
-        let destinationVC = addFaceAssembly.selectStudentViewController()
-        
-        show(destinationVC, sender: nil)
-    }
-    
-    private func navigateToDeleteFaces() {
-    }
-    
-    private func navigateToSeminars() {
-    }
-    
-    private func navigateToLectures() {
+        let rootAssembly = appDelegate!.rootAssembly
+        switch destination {
+        case .addFaces:
+            show(rootAssembly.addFaceAssembly.selectStudentViewController(), sender: nil)
+        case .deleteFaces:
+            show(rootAssembly.deleteFacesAssembly.deleteFacesViewController(), sender: nil)
+        case .seminars:
+            return
+        case .lectures:
+            return
+        }
     }
 }

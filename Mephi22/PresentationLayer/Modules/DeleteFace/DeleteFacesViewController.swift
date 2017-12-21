@@ -1,20 +1,15 @@
 //
-//  AFSelectStudentViewController.swift
+//  DeleteFacesViewController.swift
 //  Mephi22
 //
-//  Created by Mikhail Rudanov on 09/12/2017.
+//  Created by Mikhail Rudanov on 21/12/2017.
 //  Copyright © 2017 Mikhail Rudanov. All rights reserved.
 //
 
 import UIKit
 import PKHUD
 
-struct StudentDisplayModel {
-    var studentId: String
-    var studentName: String?
-}
-
-class AFSelectStudentViewController: UIViewController {
+class DeleteFacesViewController: UIViewController {
     @IBOutlet weak var selectGroupPicker: UIPickerView!
     @IBOutlet weak var selectStudentPicker: UIPickerView!
     
@@ -22,18 +17,18 @@ class AFSelectStudentViewController: UIViewController {
     private var studentsDataSource: IStudentsDataSource?
     
     // MARK: - Initialization
-    public static func initVC(groupsDataSource: IGroupsDataSource, studentsDataSource: IStudentsDataSource) -> AFSelectStudentViewController {
-        let selectStudentVC = UIStoryboard(name: "AddFaces", bundle: nil).instantiateViewController(withIdentifier: "AFSelectStudent") as! AFSelectStudentViewController
-        selectStudentVC.groupsDataSource = groupsDataSource
-        selectStudentVC.studentsDataSource = studentsDataSource
-        return selectStudentVC
+    public static func initVC(groupsDataSource: IGroupsDataSource, studentsDataSource: IStudentsDataSource) -> DeleteFacesViewController {
+        let deleteFacesVC = UIStoryboard(name: "DeleteFaces", bundle: nil).instantiateViewController(withIdentifier: "DeleteFacesVC") as! DeleteFacesViewController
+        deleteFacesVC.groupsDataSource = groupsDataSource
+        deleteFacesVC.studentsDataSource = studentsDataSource
+        return deleteFacesVC
     }
-        
+    
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
-        navigationItem.title = "Add Face"
+        navigationItem.title = "Delete Faces"
         
         groupsDataSource?.delegate = self
         studentsDataSource?.delegate = self
@@ -67,7 +62,7 @@ class AFSelectStudentViewController: UIViewController {
     }
 }
 
-extension AFSelectStudentViewController: UIPickerViewDataSource {
+extension DeleteFacesViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -81,7 +76,7 @@ extension AFSelectStudentViewController: UIPickerViewDataSource {
     }
 }
 
-extension AFSelectStudentViewController: UIPickerViewDelegate {
+extension DeleteFacesViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == selectStudentPicker {
             return studentsDataSource?.studentNameAt(row)
@@ -100,7 +95,7 @@ extension AFSelectStudentViewController: UIPickerViewDelegate {
     }
 }
 
-extension AFSelectStudentViewController: GroupsDataSourceDelegate {
+extension DeleteFacesViewController: GroupsDataSourceDelegate {
     func groupsDidUpdate() {
         DispatchQueue.main.async {
             self.selectGroupPicker.reloadAllComponents()
@@ -123,7 +118,7 @@ extension AFSelectStudentViewController: GroupsDataSourceDelegate {
     }
 }
 
-extension AFSelectStudentViewController: StudentsDataSourceDelegate {
+extension DeleteFacesViewController: StudentsDataSourceDelegate {
     func studentsDidUpdate() {
         DispatchQueue.main.async {
             self.selectStudentPicker.reloadAllComponents()

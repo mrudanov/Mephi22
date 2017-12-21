@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		66762D2DF9196AA83D28A394 /* Pods_Mephi22.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18B05463E07886F37487C26 /* Pods_Mephi22.framework */; };
 		7415826B1FDD7FCB00A7DC97 /* MenuAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7415826A1FDD7FCB00A7DC97 /* MenuAssembly.swift */; };
+		741ABD261FEC1E2C00E4B97F /* DeleteFaces.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 741ABD251FEC1E2C00E4B97F /* DeleteFaces.storyboard */; };
+		741ABD281FEC1E6900E4B97F /* DeleteFacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741ABD271FEC1E6900E4B97F /* DeleteFacesViewController.swift */; };
+		741ABD2A1FEC1F2000E4B97F /* DeleteFacesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741ABD291FEC1F2000E4B97F /* DeleteFacesAssembly.swift */; };
 		748943CA1FDAF27D0015D853 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748943C91FDAF27D0015D853 /* AppDelegate.swift */; };
 		748943D11FDAF27D0015D853 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 748943D01FDAF27D0015D853 /* Assets.xcassets */; };
 		748943D41FDAF27D0015D853 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 748943D21FDAF27D0015D853 /* LaunchScreen.storyboard */; };
@@ -30,6 +33,9 @@
 /* Begin PBXFileReference section */
 		66561BFD4DD37AC49E5070A3 /* Pods-Mephi22.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mephi22.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mephi22/Pods-Mephi22.debug.xcconfig"; sourceTree = "<group>"; };
 		7415826A1FDD7FCB00A7DC97 /* MenuAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAssembly.swift; sourceTree = "<group>"; };
+		741ABD251FEC1E2C00E4B97F /* DeleteFaces.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DeleteFaces.storyboard; sourceTree = "<group>"; };
+		741ABD271FEC1E6900E4B97F /* DeleteFacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFacesViewController.swift; sourceTree = "<group>"; };
+		741ABD291FEC1F2000E4B97F /* DeleteFacesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFacesAssembly.swift; sourceTree = "<group>"; };
 		748943C61FDAF27D0015D853 /* Mephi22.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mephi22.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		748943C91FDAF27D0015D853 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		748943D01FDAF27D0015D853 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -167,6 +173,9 @@
 		748943E01FDAF70A0015D853 /* DeleteFace */ = {
 			isa = PBXGroup;
 			children = (
+				741ABD251FEC1E2C00E4B97F /* DeleteFaces.storyboard */,
+				741ABD271FEC1E6900E4B97F /* DeleteFacesViewController.swift */,
+				741ABD291FEC1F2000E4B97F /* DeleteFacesAssembly.swift */,
 			);
 			path = DeleteFace;
 			sourceTree = "<group>";
@@ -323,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				748943E61FDB3A500015D853 /* Menu.storyboard in Resources */,
+				741ABD261FEC1E2C00E4B97F /* DeleteFaces.storyboard in Resources */,
 				748943F11FDBCC980015D853 /* AddFaces.storyboard in Resources */,
 				748943D41FDAF27D0015D853 /* LaunchScreen.storyboard in Resources */,
 				748943D11FDAF27D0015D853 /* Assets.xcassets in Resources */,
@@ -392,6 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				741ABD281FEC1E6900E4B97F /* DeleteFacesViewController.swift in Sources */,
 				748944041FDD2FF00015D853 /* StudentsDataSource.swift in Sources */,
 				748944021FDC8AFA0015D853 /* GroupsDataSource.swift in Sources */,
 				748944001FDC83E40015D853 /* RequestFactory.swift in Sources */,
@@ -401,6 +412,7 @@
 				748943EA1FDBCBCF0015D853 /* RootAssembly.swift in Sources */,
 				748943FA1FDC6EAE0015D853 /* Mephi22Service.swift in Sources */,
 				748944071FDD4DBF0015D853 /* AddFaceAssembly.swift in Sources */,
+				741ABD2A1FEC1F2000E4B97F /* DeleteFacesAssembly.swift in Sources */,
 				748943FC1FDC6EC50015D853 /* Request.swift in Sources */,
 				7415826B1FDD7FCB00A7DC97 /* MenuAssembly.swift in Sources */,
 				748943E81FDB3FDB0015D853 /* MenuTableViewController.swift in Sources */,
