@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 protocol IRequestSender {
-    func send<Model: Codable>(request: IRequest, completionHandler: @escaping (Result<Model>) -> Void)
+    func send<Model: Codable>(request: IRequest, method: RequestMethod, completionHandler: @escaping (Result<Model>) -> Void)
 }
 
 enum Result<Model> {
@@ -18,10 +18,23 @@ enum Result<Model> {
     case error(String)
 }
 
+enum RequestMethod {
+    case get, post
+}
+
 class RequestSender: IRequestSender {
-    func send<Model: Codable>(request: IRequest, completionHandler: @escaping (Result<Model>) -> Void) {
+    func send<Model: Codable>(request: IRequest, method: RequestMethod, completionHandler: @escaping (Result<Model>) -> Void) {
+        var alamofireMethod = HTTPMethod.get
+        
+        switch method {
+        case .post:
+            alamofireMethod = HTTPMethod.post
+        default:
+            alamofireMethod = HTTPMethod.get
+        }
+        
         Alamofire.request(request.urlString,
-                          method: .get,
+                          method: alamofireMethod,
                           parameters: request.parameters,
                           encoding: JSONEncoding.default,
                           headers: request.headers).responseData() { response in

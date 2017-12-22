@@ -1,32 +1,23 @@
 //
-//  Request.swift
+//  Mephi22Request.swift
 //  Mephi22
 //
-//  Created by Mikhail Rudanov on 09/12/2017.
+//  Created by Mikhail Rudanov on 22/12/2017.
 //  Copyright © 2017 Mikhail Rudanov. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-protocol IRequest {
-    var urlString: String { get }
-    var parameters: Parameters? { get }
-    var headers: HTTPHeaders? { get }
-}
-
 enum Mephi22RequestObject: String {
-    case students
-    case groups
+    case students, groups
 }
 
 enum Mephi22RequestType: String {
-    case get
-    case set
+    case get, set
 }
 
 class Mephi22Request: IRequest {
-    
     private let baseUrl: String = "https://mephi22.ru/api/"
     private let requestType: String
     private let requestObject: String

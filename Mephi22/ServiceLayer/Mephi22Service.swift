@@ -33,10 +33,15 @@ struct Student: Codable {
 class Mephi22Service: IMephi22Service {
     private let requestSender: IRequestSender
     
+    // MARK: - Initialization
+    init(requestSender: IRequestSender) {
+        self.requestSender = requestSender
+    }
+    
     // MARK: - IMephi22Service protocol
     func getGroups(completionHandler: @escaping([Group]?, String?) -> Void) {
         let request = RequestsFactory.Mephi22Requests.getGroupsRequest()
-        requestSender.send(request: request) { (result: Result<[Group]>) in
+        requestSender.send(request: request, method: .get) { (result: Result<[Group]>) in
             switch result {
             case .error(let error):
                 completionHandler(nil, error)
@@ -48,7 +53,7 @@ class Mephi22Service: IMephi22Service {
     
     func getStudents(groupId: String, completionHandler: @escaping ([Student]?, String?) -> Void) {
         let request = RequestsFactory.Mephi22Requests.getStudentsOfGroupRequest(groupId: groupId)
-        requestSender.send(request: request) { (result: Result<[Student]>) in
+        requestSender.send(request: request, method: .get) { (result: Result<[Student]>) in
             switch result {
             case .error(let error):
                 completionHandler(nil, error)
@@ -56,10 +61,5 @@ class Mephi22Service: IMephi22Service {
                 completionHandler(students, nil)
             }
         }
-    }
-    
-    // MARK: - Initialization
-    init(requestSender: IRequestSender) {
-        self.requestSender = requestSender
     }
 }
