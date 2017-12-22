@@ -49,10 +49,10 @@
                                 </constraints>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRk-rT-Re8" customClass="RoundedUIButton" customModule="Mephi22" customModuleProvider="target">
-                                <rect key="frame" x="110" y="472" width="100" height="25"/>
+                                <rect key="frame" x="110" y="530" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.18690097115602947" green="0.87229058718601038" blue="0.58704279042278207" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="55j-kh-j1L"/>
+                                    <constraint firstAttribute="height" constant="30" id="55j-kh-j1L"/>
                                     <constraint firstAttribute="width" constant="100" id="y5j-VZ-Fbm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -72,12 +72,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bze-dt-gdH" firstAttribute="trailing" secondItem="eNk-QN-0HR" secondAttribute="trailing" constant="16" id="4e8-D1-4c4"/>
+                            <constraint firstItem="bze-dt-gdH" firstAttribute="bottom" secondItem="BRk-rT-Re8" secondAttribute="bottom" constant="8" id="DOH-lO-Mcl"/>
                             <constraint firstAttribute="trailing" secondItem="Ot4-Kq-waa" secondAttribute="trailing" constant="16" id="FJV-Ni-4ZR"/>
                             <constraint firstItem="V80-ky-8XP" firstAttribute="top" secondItem="eNk-QN-0HR" secondAttribute="bottom" id="HUe-oj-06a"/>
                             <constraint firstItem="Ot4-Kq-waa" firstAttribute="leading" secondItem="bze-dt-gdH" secondAttribute="leading" constant="16" id="Vol-1W-TPt"/>
                             <constraint firstItem="Ot4-Kq-waa" firstAttribute="top" secondItem="V80-ky-8XP" secondAttribute="bottom" id="WFP-Zp-sUK"/>
                             <constraint firstItem="sWQ-Ex-zHB" firstAttribute="leading" secondItem="bze-dt-gdH" secondAttribute="leading" id="h9s-eW-aCZ"/>
-                            <constraint firstItem="BRk-rT-Re8" firstAttribute="top" secondItem="sWQ-Ex-zHB" secondAttribute="bottom" id="hLc-cr-QAb"/>
                             <constraint firstItem="V80-ky-8XP" firstAttribute="trailing" secondItem="bze-dt-gdH" secondAttribute="trailing" id="kXS-fh-9pA"/>
                             <constraint firstItem="sWQ-Ex-zHB" firstAttribute="trailing" secondItem="bze-dt-gdH" secondAttribute="trailing" id="lgw-fQ-XjV"/>
                             <constraint firstItem="sWQ-Ex-zHB" firstAttribute="top" secondItem="Ot4-Kq-waa" secondAttribute="bottom" id="mEp-ox-GSq"/>

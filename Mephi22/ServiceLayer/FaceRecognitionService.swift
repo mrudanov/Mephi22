@@ -9,11 +9,14 @@
 import Foundation
 
 protocol IFaceRecognitionService {
-    func addFaceToGroup(image: String, groupId: String, personId: String, completionHandler: @escaping(_ error: String?) -> Void)
-    func deleteFace(groupId: String, personId: String, completionHandler: @escaping(_ error: String?) -> Void)
-    func deleteFacialGroup(groupId: String, completionHandler: @escaping(_ error: String?) -> Void)
+    func addFaceToGroup(image: String, groupId: String, personId: String, completionHandler: @escaping(String?) -> Void)
+    
+    func deleteFace(groupId: String, personId: String, completionHandler: @escaping(String?) -> Void)
+    func deleteFacialGroup(groupId: String, completionHandler: @escaping(String?) -> Void)
+    
     func getFacialGroups(completionHandler: @escaping([String]?, String?) -> Void)
     func getPersonsOfFacialGroup(groupId: String, completionHandler: @escaping([String]?, String?) -> Void)
+    
     func recognizePerson(image: String, groupId: String, completionHandler: @escaping(String?, String?) -> Void)
 }
 
@@ -66,9 +69,6 @@ struct RecognitionResult: Codable {
     var images: [RecognitionImage]
 }
 
-
-
-
 class KairosFaceRecognitionService: IFaceRecognitionService {
     private let requestSender: IRequestSender
     
@@ -78,7 +78,7 @@ class KairosFaceRecognitionService: IFaceRecognitionService {
     }
     
     // MARK: - IFaceRecognitionService protocol
-    func addFaceToGroup(image: String, groupId: String, personId: String, completionHandler: @escaping(_ error: String?) -> Void) {
+    func addFaceToGroup(image: String, groupId: String, personId: String, completionHandler: @escaping(String?) -> Void) {
         let request = RequestsFactory.KairosRequests.enrollRequest(subjectId: personId, image: image, gallaryId: groupId)
         requestSender.send(request: request, method: .post) { (result: Result<Person>) in
             switch result {
@@ -90,7 +90,7 @@ class KairosFaceRecognitionService: IFaceRecognitionService {
         }
     }
     
-    func deleteFace(groupId: String, personId: String, completionHandler: @escaping(_ error: String?) -> Void) {
+    func deleteFace(groupId: String, personId: String, completionHandler: @escaping(String?) -> Void) {
         let request = RequestsFactory.KairosRequests.deletePersonRequest(subjectId: personId, gallaryId: groupId)
         requestSender.send(request: request, method: .post) { (result: Result<DeletedStatus>) in
             switch result {
@@ -102,7 +102,7 @@ class KairosFaceRecognitionService: IFaceRecognitionService {
         }
     }
     
-    func deleteFacialGroup(groupId: String, completionHandler: @escaping(_ error: String?) -> Void) {
+    func deleteFacialGroup(groupId: String, completionHandler: @escaping(String?) -> Void) {
         let request = RequestsFactory.KairosRequests.deleteGallaryRequest(groupId)
         requestSender.send(request: request, method: .post) { (result: Result<DeletedStatus>) in
             switch result {
@@ -153,6 +153,4 @@ class KairosFaceRecognitionService: IFaceRecognitionService {
             }
         }
     }
-    
-    
 }

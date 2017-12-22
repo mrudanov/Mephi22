@@ -49,13 +49,13 @@
                                 </constraints>
                             </pickerView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="P07-TX-s6b">
-                                <rect key="frame" x="8" y="472" width="304" height="25"/>
+                                <rect key="frame" x="8" y="530" width="304" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1p-yC-6Ou" customClass="RoundedUIButton" customModule="Mephi22" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="147" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="147" height="30"/>
                                         <color key="backgroundColor" red="0.98383122839170978" green="0.39268444128167951" blue="0.36659355072233279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="DlR-zV-QhV"/>
+                                            <constraint firstAttribute="height" constant="30" id="DlR-zV-QhV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Delete student">
@@ -66,12 +66,15 @@
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="deleteStudentPressed" destination="8Ge-SG-lZu" eventType="touchUpInside" id="Dak-Wq-VJY"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZ6-LW-e5F" customClass="RoundedUIButton" customModule="Mephi22" customModuleProvider="target">
-                                        <rect key="frame" x="157" y="0.0" width="147" height="25"/>
+                                        <rect key="frame" x="157" y="0.0" width="147" height="30"/>
                                         <color key="backgroundColor" red="0.90513951854715025" green="0.22537758522985227" blue="0.2633026606913188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="Pe3-lH-HEG"/>
+                                            <constraint firstAttribute="height" constant="30" id="Pe3-lH-HEG"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Delete group">
@@ -82,6 +85,9 @@
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="deleteGroupPressed" destination="8Ge-SG-lZu" eventType="touchUpInside" id="jyX-GJ-eED"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -92,12 +98,12 @@
                             <constraint firstItem="P07-TX-s6b" firstAttribute="leading" secondItem="ALc-oX-qOR" secondAttribute="leading" constant="8" id="2Ti-GE-PDa"/>
                             <constraint firstItem="22P-Q5-ZrM" firstAttribute="top" secondItem="l4n-v4-TSC" secondAttribute="bottom" id="4eq-CY-8Tg"/>
                             <constraint firstItem="l4n-v4-TSC" firstAttribute="top" secondItem="uUg-v5-3VL" secondAttribute="bottom" id="5am-A0-mDe"/>
+                            <constraint firstItem="ALc-oX-qOR" firstAttribute="bottom" secondItem="P07-TX-s6b" secondAttribute="bottom" constant="8" id="7Gv-Mt-Xdg"/>
                             <constraint firstItem="P07-TX-s6b" firstAttribute="centerX" secondItem="ALc-oX-qOR" secondAttribute="centerX" id="Bak-ZQ-Waf"/>
                             <constraint firstItem="uUg-v5-3VL" firstAttribute="leading" secondItem="ALc-oX-qOR" secondAttribute="leading" id="GBT-tC-PdE"/>
                             <constraint firstItem="uUg-v5-3VL" firstAttribute="trailing" secondItem="ALc-oX-qOR" secondAttribute="trailing" id="NPB-D8-oGT"/>
                             <constraint firstItem="uUg-v5-3VL" firstAttribute="top" secondItem="qdR-Kn-AdO" secondAttribute="bottom" id="PU8-Ea-2s4"/>
                             <constraint firstItem="qdR-Kn-AdO" firstAttribute="top" secondItem="ALc-oX-qOR" secondAttribute="top" constant="8" id="V7n-ct-LTG"/>
-                            <constraint firstItem="P07-TX-s6b" firstAttribute="top" secondItem="22P-Q5-ZrM" secondAttribute="bottom" id="Y21-yr-H73"/>
                             <constraint firstItem="qdR-Kn-AdO" firstAttribute="leading" secondItem="ALc-oX-qOR" secondAttribute="leading" constant="16" id="hTK-9P-Ksa"/>
                             <constraint firstItem="l4n-v4-TSC" firstAttribute="leading" secondItem="ALc-oX-qOR" secondAttribute="leading" constant="16" id="k2V-8O-TX4"/>
                             <constraint firstItem="ALc-oX-qOR" firstAttribute="trailing" secondItem="P07-TX-s6b" secondAttribute="trailing" constant="8" id="oac-Bn-iOT"/>

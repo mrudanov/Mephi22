@@ -12,14 +12,19 @@ import UIKit
 
 class RootAssembly {
     private let mephi22Service: IMephi22Service
+    private let faceRecognitionService: IFaceRecognitionService
     private let requestSender: IRequestSender
     
     init() {
         requestSender = RequestSender()
+        
         mephi22Service = Mephi22Service(requestSender: requestSender)
+        faceRecognitionService = KairosFaceRecognitionService(requestSender: requestSender)
+        
         addFaceAssembly = AddFaceAssembly(mephi22Service: mephi22Service)
-        deleteFacesAssembly = DeleteFacesAssembly(mephi22Service: mephi22Service)
+        deleteFacesAssembly = DeleteFacesAssembly(mephi22Service: mephi22Service, faceRecognitionService: faceRecognitionService)
         menuAssembly = MenuAssembly()
+        
         mainNavigationController = menuAssembly.menuNavigationController()
     }
     

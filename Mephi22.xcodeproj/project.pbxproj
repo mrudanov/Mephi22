@@ -31,6 +31,9 @@
 		748944021FDC8AFA0015D853 /* GroupsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748944011FDC8AFA0015D853 /* GroupsDataSource.swift */; };
 		748944041FDD2FF00015D853 /* StudentsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748944031FDD2FF00015D853 /* StudentsDataSource.swift */; };
 		748944071FDD4DBF0015D853 /* AddFaceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748944061FDD4DBF0015D853 /* AddFaceAssembly.swift */; };
+		74949D021FED411500407925 /* EnrolledGroupsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74949D011FED411500407925 /* EnrolledGroupsDataSource.swift */; };
+		74949D041FED91A900407925 /* EnrolledStudentsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74949D031FED91A900407925 /* EnrolledStudentsDataSource.swift */; };
+		74949D061FEDAC2000407925 /* DeleteFacesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74949D051FEDAC2000407925 /* DeleteFacesInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		748944011FDC8AFA0015D853 /* GroupsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsDataSource.swift; sourceTree = "<group>"; };
 		748944031FDD2FF00015D853 /* StudentsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsDataSource.swift; sourceTree = "<group>"; };
 		748944061FDD4DBF0015D853 /* AddFaceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFaceAssembly.swift; sourceTree = "<group>"; };
+		74949D011FED411500407925 /* EnrolledGroupsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrolledGroupsDataSource.swift; sourceTree = "<group>"; };
+		74949D031FED91A900407925 /* EnrolledStudentsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrolledStudentsDataSource.swift; sourceTree = "<group>"; };
+		74949D051FEDAC2000407925 /* DeleteFacesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFacesInteractor.swift; sourceTree = "<group>"; };
 		7EF5A2C67B97869176C41EF6 /* Pods-Mephi22.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mephi22.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mephi22/Pods-Mephi22.release.xcconfig"; sourceTree = "<group>"; };
 		A18B05463E07886F37487C26 /* Pods_Mephi22.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mephi22.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -193,6 +199,7 @@
 				741ABD251FEC1E2C00E4B97F /* DeleteFaces.storyboard */,
 				741ABD271FEC1E6900E4B97F /* DeleteFacesViewController.swift */,
 				741ABD291FEC1F2000E4B97F /* DeleteFacesAssembly.swift */,
+				74949D051FEDAC2000407925 /* DeleteFacesInteractor.swift */,
 			);
 			path = DeleteFace;
 			sourceTree = "<group>";
@@ -282,6 +289,8 @@
 			children = (
 				748944011FDC8AFA0015D853 /* GroupsDataSource.swift */,
 				748944031FDD2FF00015D853 /* StudentsDataSource.swift */,
+				74949D011FED411500407925 /* EnrolledGroupsDataSource.swift */,
+				74949D031FED91A900407925 /* EnrolledStudentsDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -425,16 +434,19 @@
 				748944001FDC83E40015D853 /* RequestFactory.swift in Sources */,
 				748943FE1FDC73E00015D853 /* RequestSender.swift in Sources */,
 				741ABD2F1FEC64BA00E4B97F /* KairosRequest.swift in Sources */,
+				74949D041FED91A900407925 /* EnrolledStudentsDataSource.swift in Sources */,
 				748943F71FDC48840015D853 /* AFSelectStudentViewController.swift in Sources */,
 				748943CA1FDAF27D0015D853 /* AppDelegate.swift in Sources */,
 				748943EA1FDBCBCF0015D853 /* RootAssembly.swift in Sources */,
 				741ABD311FEC64D400E4B97F /* IRequest.swift in Sources */,
 				748943FA1FDC6EAE0015D853 /* Mephi22Service.swift in Sources */,
 				748944071FDD4DBF0015D853 /* AddFaceAssembly.swift in Sources */,
+				74949D021FED411500407925 /* EnrolledGroupsDataSource.swift in Sources */,
 				741ABD2A1FEC1F2000E4B97F /* DeleteFacesAssembly.swift in Sources */,
 				7415826B1FDD7FCB00A7DC97 /* MenuAssembly.swift in Sources */,
 				748943E81FDB3FDB0015D853 /* MenuTableViewController.swift in Sources */,
 				748943EF1FDBCC6D0015D853 /* RoundedUIButton.swift in Sources */,
+				74949D061FEDAC2000407925 /* DeleteFacesInteractor.swift in Sources */,
 				741ABD331FEC668000E4B97F /* FaceRecognitionService.swift in Sources */,
 				741ABD2D1FEC64A700E4B97F /* Mephi22Request.swift in Sources */,
 			);

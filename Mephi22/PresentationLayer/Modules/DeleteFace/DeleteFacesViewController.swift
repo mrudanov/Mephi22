@@ -16,11 +16,15 @@ class DeleteFacesViewController: UIViewController {
     private var groupsDataSource: IGroupsDataSource?
     private var studentsDataSource: IStudentsDataSource?
     
+    private var deleteFaceInteractor: IDeleteFaceInteractor?
+    
     // MARK: - Initialization
-    public static func initVC(groupsDataSource: IGroupsDataSource, studentsDataSource: IStudentsDataSource) -> DeleteFacesViewController {
+    public static func initVC(groupsDataSource: IGroupsDataSource, studentsDataSource: IStudentsDataSource, deleteFaceInteractor: IDeleteFaceInteractor) -> DeleteFacesViewController {
         let deleteFacesVC = UIStoryboard(name: "DeleteFaces", bundle: nil).instantiateViewController(withIdentifier: "DeleteFacesVC") as! DeleteFacesViewController
+        
         deleteFacesVC.groupsDataSource = groupsDataSource
         deleteFacesVC.studentsDataSource = studentsDataSource
+        deleteFacesVC.deleteFaceInteractor = deleteFaceInteractor
         return deleteFacesVC
     }
     
@@ -47,12 +51,84 @@ class DeleteFacesViewController: UIViewController {
         selectGroupPicker.delegate = self
     }
     
-    // MARK: - Alerts
-    private func showAllert(with message: String, tryAgainAction: @escaping() -> Void) {
-        let alert = UIAlertController(title: "Network error", message: message, preferredStyle: .alert)
+    // MARK: - Buttons
+    @IBAction func deleteStudentPressed() {
+        let selectedStudentIndex = selectStudentPicker.selectedRow(inComponent: 0)
+        let studentId = studentsDataSource?.studentIdAt(selectedStudentIndex)
+        guard studentId != nil else { return }
         
-        let tryAgainAction = UIAlertAction(title: "Try again", style: .default, handler: { (action) in
-            tryAgainAction()
+        let selectedGroupIndex = selectGroupPicker.selectedRow(inComponent: 0)
+        let groupId = groupsDataSource?.groupIdAt(selectedGroupIndex)
+        guard groupId != nil else { return }
+        
+        showAllert(title: "Are you sure?",
+                   message: "Delete selected student from recognizer?",
+                   actionTitle: "Delete student",
+                   style: .destructive) {
+                    HUD.show(.progress)
+                    self.deleteFaceInteractor?.deleteStudentFromRecognizer(studentId!, groupId: groupId!) { error in
+                        self.deleteStudentCompletion(studentId: studentId!, groupId: groupId!, errorMessage: error)
+                    }
+        }
+    }
+    
+    @IBAction func deleteGroupPressed() {
+        let selectedIndex = selectGroupPicker.selectedRow(inComponent: 0)
+        let groupId = groupsDataSource?.groupIdAt(selectedIndex)
+        guard groupId != nil else { return }
+        
+        showAllert(title: "Are you sure?",
+                   message: "Delete selected group from recognizer?",
+                   actionTitle: "Delete group",
+                   style: .destructive) {
+                    HUD.show(.progress)
+                    self.deleteFaceInteractor?.daleteGroupFromRecognizer(groupId!) { error in
+                        self.deleteGroupCompletion(groupId: groupId!, errorMessage: error)
+                    }
+        }
+    }
+    
+    // MARK: - Completions
+    private func deleteGroupCompletion(groupId: String, errorMessage: String?) {
+        DispatchQueue.main.async {
+            if let errorMessage = errorMessage {
+                self.showAllert(title: "Can't delete group!",
+                                message: errorMessage,
+                                actionTitle: "Try again!",
+                                style: .default) {
+                                    self.deleteFaceInteractor?.daleteGroupFromRecognizer(groupId) { error in
+                                        self.deleteGroupCompletion(groupId: groupId, errorMessage: errorMessage)
+                                    }
+                }
+            } else {
+                self.groupsDataSource?.getGroups()
+            }
+        }
+    }
+    
+    private func deleteStudentCompletion(studentId: String,groupId: String, errorMessage: String?) {
+        DispatchQueue.main.async {
+            if let errorMessage = errorMessage {
+                self.showAllert(title: "Can't delete student!",
+                                message: errorMessage,
+                                actionTitle: "Try again!",
+                                style: .default) {
+                                    self.deleteFaceInteractor?.deleteStudentFromRecognizer(studentId, groupId: groupId) { error in
+                                        self.deleteStudentCompletion(studentId: studentId, groupId: groupId, errorMessage: error)
+                                    }
+                }
+            } else {
+                self.studentsDataSource?.getStudentsFromGroup(groupId)
+            }
+        }
+    }
+    
+    // MARK: - Alerts
+    private func showAllert(title: String, message: String, actionTitle: String, style: UIAlertActionStyle, action: @escaping() -> Void) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let tryAgainAction = UIAlertAction(title: actionTitle, style: style, handler: { _ in
+            action()
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
@@ -110,7 +186,7 @@ extension DeleteFacesViewController: GroupsDataSourceDelegate {
     func recievedGroupLoadError(errorMessage: String) {
         DispatchQueue.main.async {
             HUD.hide()
-            self.showAllert(with: errorMessage) {
+            self.showAllert(title: "Network error", message: errorMessage, actionTitle: "Try again", style: .default) {
                 HUD.show(.progress)
                 self.groupsDataSource?.getGroups()
             }
@@ -129,7 +205,7 @@ extension DeleteFacesViewController: StudentsDataSourceDelegate {
     func recievedStudentsLoadError(errorMessage: String) {
         DispatchQueue.main.async {
             HUD.hide()
-            self.showAllert(with: errorMessage) {
+            self.showAllert(title: "Network error", message: errorMessage, actionTitle: "Try again", style: .destructive) {
                 let selectedGroup = self.selectGroupPicker.selectedRow(inComponent: 0)
                 if let selectedGroupId = self.groupsDataSource?.groupIdAt(selectedGroup) {
                     HUD.show(.progress)
