@@ -15,7 +15,7 @@ class AFCameraViewController: CameraViewController {
     private var groupId: String?
     private var faceImageBase64String: String?
     
-    private var cameraInteractor: IAFCameraInteractor?
+    private var cameraInteractor: ICameraInteractor?
     
     override func viewDidLoad() {
         super.defaultCameraIsBack = false
@@ -23,7 +23,7 @@ class AFCameraViewController: CameraViewController {
     }
     
     // MARK: - Initialization
-    public static func initVC(studentId: String, groupId: String, cameraInteractor: IAFCameraInteractor) -> AFCameraViewController {
+    public static func initVC(studentId: String, groupId: String, cameraInteractor: ICameraInteractor) -> AFCameraViewController {
         let cameraVC = UIStoryboard(name: "AFCamera", bundle: nil).instantiateViewController(withIdentifier: "AFCamera") as! AFCameraViewController
         
         cameraVC.studentId = studentId
@@ -93,7 +93,9 @@ class AFCameraViewController: CameraViewController {
         let tryAgainAction = UIAlertAction(title: "Try again", style: .default, handler: { (action) in
             tryAgainAction()
         })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            super.startRunningCaptureSession()
+        }
         
         alert.addAction(tryAgainAction)
         alert.addAction(cancelAction)

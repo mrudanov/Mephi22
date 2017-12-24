@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SeminarsAssembly {
+class ClassesAssembly {
     private let faceRecognitionService: IFaceRecognitionService
     private let mephi22Service: IMephi22Service
     
@@ -17,9 +17,9 @@ class SeminarsAssembly {
         self.mephi22Service = mephi22Service
     }
     
-    func seminarsSelectGroupViewController() -> SeminarsSelectGroupViewController {
+    func classesSelectGroupViewController() -> ClassesSelectGroupViewController {
         let groupsDataSource = EnrolledGroupsDataSource(mephi22Service: mephi22Service, faceRecognitionService: faceRecognitionService)
         
-        return SeminarsSelectGroupViewController.initVC(groupsDataSource: groupsDataSource)
+        return ClassesSelectGroupViewController.initVC(groupsDataSource: groupsDataSource)
     }
 }

@@ -20,7 +20,8 @@ class RootAssembly {
     let menuAssembly: MenuAssembly
     let deleteFacesAssembly: DeleteFacesAssembly
     let cameraAssembly: CameraAssembly
-    let seminarsAssembly: SeminarsAssembly
+    let classesAssembly: ClassesAssembly
+    let checkPredictionsAssembly: CheckPredictionsAssembly
     
     init() {
         requestSender = RequestSender()
@@ -31,8 +32,9 @@ class RootAssembly {
         menuAssembly = MenuAssembly()
         addFaceAssembly = AddFaceAssembly(mephi22Service: mephi22Service)
         deleteFacesAssembly = DeleteFacesAssembly(mephi22Service: mephi22Service, faceRecognitionService: faceRecognitionService)
-        seminarsAssembly = SeminarsAssembly(mephi22Service: mephi22Service, faceRecognitionService: faceRecognitionService)
+        classesAssembly = ClassesAssembly(mephi22Service: mephi22Service, faceRecognitionService: faceRecognitionService)
         cameraAssembly = CameraAssembly(faceRecognitionService: faceRecognitionService)
+        checkPredictionsAssembly = CheckPredictionsAssembly(mephi22Service: mephi22Service, faceRecognitionService: faceRecognitionService)
         
         mainNavigationController = menuAssembly.menuNavigationController()
     }

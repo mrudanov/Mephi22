@@ -48,36 +48,10 @@
                                     <constraint firstAttribute="height" constant="200" id="JSQ-pV-r6y"/>
                                 </constraints>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRk-rT-Re8" customClass="RoundedUIButton" customModule="Mephi22" customModuleProvider="target">
-                                <rect key="frame" x="110" y="526" width="100" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="55j-kh-j1L"/>
-                                    <constraint firstAttribute="width" constant="100" id="y5j-VZ-Fbm"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="→">
-                                    <color key="titleColor" red="0.98383122840000004" green="0.39268444130000002" blue="0.36659355069999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.98383122840000004" green="0.39268444130000002" blue="0.36659355069999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="nextButtonPressed:" destination="Gj7-NN-GNi" eventType="touchUpInside" id="SoG-JV-yuh"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bze-dt-gdH" firstAttribute="trailing" secondItem="eNk-QN-0HR" secondAttribute="trailing" constant="16" id="4e8-D1-4c4"/>
-                            <constraint firstItem="bze-dt-gdH" firstAttribute="bottom" secondItem="BRk-rT-Re8" secondAttribute="bottom" constant="12" id="DOH-lO-Mcl"/>
                             <constraint firstAttribute="trailing" secondItem="Ot4-Kq-waa" secondAttribute="trailing" constant="16" id="FJV-Ni-4ZR"/>
                             <constraint firstItem="V80-ky-8XP" firstAttribute="top" secondItem="eNk-QN-0HR" secondAttribute="bottom" id="HUe-oj-06a"/>
                             <constraint firstItem="Ot4-Kq-waa" firstAttribute="leading" secondItem="bze-dt-gdH" secondAttribute="leading" constant="16" id="Vol-1W-TPt"/>
@@ -88,7 +62,6 @@
                             <constraint firstItem="sWQ-Ex-zHB" firstAttribute="top" secondItem="Ot4-Kq-waa" secondAttribute="bottom" id="mEp-ox-GSq"/>
                             <constraint firstItem="eNk-QN-0HR" firstAttribute="top" secondItem="bze-dt-gdH" secondAttribute="top" constant="8" id="mFW-Gp-GV8"/>
                             <constraint firstItem="eNk-QN-0HR" firstAttribute="leading" secondItem="bze-dt-gdH" secondAttribute="leading" constant="16" id="srX-Gg-h7F"/>
-                            <constraint firstItem="BRk-rT-Re8" firstAttribute="centerX" secondItem="bze-dt-gdH" secondAttribute="centerX" id="vBG-MJ-0NI"/>
                             <constraint firstItem="V80-ky-8XP" firstAttribute="leading" secondItem="bze-dt-gdH" secondAttribute="leading" id="y20-Cg-bWX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bze-dt-gdH"/>

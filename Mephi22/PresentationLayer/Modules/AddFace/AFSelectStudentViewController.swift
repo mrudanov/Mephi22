@@ -27,6 +27,7 @@ class AFSelectStudentViewController: UIViewController {
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(navigateToAFCameraVieController))
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.title = "Add Face"
         
@@ -62,11 +63,7 @@ class AFSelectStudentViewController: UIViewController {
     }
     
     // MARK: - Navigation
-    @IBAction func nextButtonPressed(_ sender: RoundedUIButton) {
-        navigateToAFCameraVieController()
-    }
-    
-    private func navigateToAFCameraVieController() {
+    @objc private func navigateToAFCameraVieController() {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         guard appDelegate != nil else { return }
         

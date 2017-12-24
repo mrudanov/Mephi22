@@ -17,56 +17,7 @@ protocol IFaceRecognitionService {
     func getFacialGroups(completionHandler: @escaping([String]?, String?) -> Void)
     func getPersonsOfFacialGroup(groupId: String, completionHandler: @escaping([String]?, String?) -> Void)
     
-    func recognizePerson(image: String, groupId: String, completionHandler: @escaping(String?, String?) -> Void)
-}
-
-struct Person: Codable {
-    private enum CodingKeys : String, CodingKey {
-        case faceId = "face_id"
-    }
-    var faceId: String
-}
-
-struct DeletedStatus: Codable {
-    var status: String
-}
-
-struct FacialGroupsList: Codable {
-    private enum CodingKeys : String, CodingKey {
-        case status = "status", facialGroupsId = "gallery_ids"
-    }
-    var status: String
-    var facialGroupsId: [String]
-}
-
-struct PersonsList: Codable {
-    private enum CodingKeys : String, CodingKey {
-        case status = "status", personsId = "subject_ids"
-    }
-    var status: String
-    var personsId: [String]
-}
-
-struct RecognitionCandidate: Codable {
-    private enum CodingKeys : String, CodingKey {
-        case personId = "subject_id", confidence = "confidence"
-    }
-    var personId: String
-    var confidence: String
-}
-
-struct RecognitionImage: Codable {
-    private enum CodingKeys : String, CodingKey {
-        case candidates = "candidates"
-    }
-    var candidates: [RecognitionCandidate]
-}
-
-struct RecognitionResult: Codable {
-    private enum CodingKeys : String, CodingKey {
-        case images = "images"
-    }
-    var images: [RecognitionImage]
+    func recognizePerson(image: String, groupId: String, completionHandler: @escaping([String]?, String?) -> Void)
 }
 
 class KairosFaceRecognitionService: IFaceRecognitionService {
@@ -138,18 +89,22 @@ class KairosFaceRecognitionService: IFaceRecognitionService {
         }
     }
     
-    func recognizePerson(image: String, groupId: String, completionHandler: @escaping(String?, String?) -> Void) {
+    func recognizePerson(image: String, groupId: String, completionHandler: @escaping([String]?, String?) -> Void) {
         let request = RequestsFactory.KairosRequests.recognizeFaceRequest(image: image, gallaryId: groupId)
         requestSender.send(request: request, method: .post) { (result: Result<RecognitionResult>) in
             switch result {
             case .error(let error):
                 completionHandler(nil, error)
             case .success(let recognitionResult):
-                if let personId = recognitionResult.images.first?.candidates.first?.personId {
-                    completionHandler(personId, nil)
-                } else {
-                    completionHandler(nil, "No person detected!")
+                var detectedPersons: [String] = []
+                
+                for image in recognitionResult.images {
+                    if let personId = image.candidates.first?.personId {
+                        detectedPersons.append(personId)
+                    }
                 }
+                
+                completionHandler(detectedPersons, nil)
             }
         }
     }

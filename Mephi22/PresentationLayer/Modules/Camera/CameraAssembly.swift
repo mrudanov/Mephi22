@@ -16,13 +16,13 @@ class CameraAssembly {
     }
     
     func addFacesCameraViewController(groupId: String, studentId: String) -> AFCameraViewController {
-        let cameraInteractor: IAFCameraInteractor = AFCameraInteractor(faceRecognitionService: faceRecognitionService)
+        let cameraInteractor: ICameraInteractor = CameraInteractor(faceRecognitionService: faceRecognitionService)
         
         return AFCameraViewController.initVC(studentId: studentId, groupId: groupId, cameraInteractor: cameraInteractor)
     }
     
     func classesCameraViewController(classNumber: String, groupId: String) -> ClassesCameraViewController {
-        let cameraInteractor: IAFCameraInteractor = AFCameraInteractor(faceRecognitionService: faceRecognitionService)
+        let cameraInteractor: ICameraInteractor = CameraInteractor(faceRecognitionService: faceRecognitionService)
         
         return ClassesCameraViewController.initVC(classNumber: classNumber, groupId: groupId, cameraInteractor: cameraInteractor)
     }

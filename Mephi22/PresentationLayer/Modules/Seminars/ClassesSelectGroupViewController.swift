@@ -9,17 +9,17 @@
 import UIKit
 import PKHUD
 
-class SeminarsSelectGroupViewController: UIViewController {
+class ClassesSelectGroupViewController: UIViewController {
     @IBOutlet weak var selectGroupPicker: UIPickerView!
-    @IBOutlet weak var selectSeminarPicker: UIPickerView!
+    @IBOutlet weak var selectClassesPicker: UIPickerView!
     
     private var groupsDataSource: IGroupsDataSource?
     
-    private var seminarNumbers: [String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"]
+    private var classesNumbers: [String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"]
     
     // MARK: - Initialization
-    public static func initVC(groupsDataSource: IGroupsDataSource) -> SeminarsSelectGroupViewController {
-        let selectGroupVC = UIStoryboard(name: "SeminarsSelectGroup", bundle: nil).instantiateViewController(withIdentifier: "SeminarsSelectGroup") as! SeminarsSelectGroupViewController
+    public static func initVC(groupsDataSource: IGroupsDataSource) -> ClassesSelectGroupViewController {
+        let selectGroupVC = UIStoryboard(name: "ClassesSelectGroup", bundle: nil).instantiateViewController(withIdentifier: "ClassesSelectGroup") as! ClassesSelectGroupViewController
         selectGroupVC.groupsDataSource = groupsDataSource
 
         return selectGroupVC
@@ -28,8 +28,9 @@ class SeminarsSelectGroupViewController: UIViewController {
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(navigateToClassesCameraVieController))
         navigationItem.largeTitleDisplayMode = .never
-        navigationItem.title = "Seminars"
+        navigationItem.title = "Classes"
         
         groupsDataSource?.delegate = self
         groupsDataSource?.getGroups()
@@ -43,8 +44,8 @@ class SeminarsSelectGroupViewController: UIViewController {
         selectGroupPicker.delegate = self
         selectGroupPicker.dataSource = self
         
-        selectSeminarPicker.delegate = self
-        selectSeminarPicker.dataSource = self
+        selectClassesPicker.delegate = self
+        selectClassesPicker.dataSource = self
     }
     
     // MARK: - Alerts
@@ -62,24 +63,20 @@ class SeminarsSelectGroupViewController: UIViewController {
     }
     
     // MARK: - Navigation
-    @IBAction func nextButtonPressed(_ sender: RoundedUIButton) {
-        navigateToClassesCameraVieController()
-    }
-    
-    private func navigateToClassesCameraVieController() {
+    @objc private func navigateToClassesCameraVieController() {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         guard appDelegate != nil else { return }
         
         let cameraAssembly = appDelegate!.rootAssembly.cameraAssembly
-        let seminarNumber = seminarNumbers[selectSeminarPicker.selectedRow(inComponent: 0)]
+        let classNumber = classesNumbers[selectClassesPicker.selectedRow(inComponent: 0)]
         
         if let groupId = groupsDataSource?.groupIdAt(selectGroupPicker.selectedRow(inComponent: 0)) {
-            present(cameraAssembly.classesCameraViewController(classNumber: seminarNumber, groupId: groupId), animated: false)
+            present(cameraAssembly.classesCameraViewController(classNumber: classNumber, groupId: groupId), animated: false)
         }
     }
 }
 
-extension SeminarsSelectGroupViewController: UIPickerViewDataSource {
+extension ClassesSelectGroupViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -88,22 +85,22 @@ extension SeminarsSelectGroupViewController: UIPickerViewDataSource {
         if pickerView == selectGroupPicker {
             return groupsDataSource?.numberOfGroups() ?? 0
         } else {
-            return seminarNumbers.count
+            return classesNumbers.count
         }
     }
 }
 
-extension SeminarsSelectGroupViewController: UIPickerViewDelegate {
+extension ClassesSelectGroupViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == selectGroupPicker {
             return groupsDataSource?.groupNameAt(row)
         } else {
-            return seminarNumbers[row]
+            return classesNumbers[row]
         }
     }
 }
 
-extension SeminarsSelectGroupViewController: GroupsDataSourceDelegate {
+extension ClassesSelectGroupViewController: GroupsDataSourceDelegate {
     func groupsDidUpdate() {
         DispatchQueue.main.async {
             HUD.hide()

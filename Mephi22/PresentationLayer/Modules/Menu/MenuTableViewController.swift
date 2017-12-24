@@ -10,7 +10,7 @@ import UIKit
 
 class MenuTableViewController: UITableViewController {
     private enum Destination {
-        case addFaces, deleteFaces, seminars, lectures
+        case addFaces, deleteFaces, classes
     }
 
     // MARK: - TableView delegate
@@ -28,9 +28,7 @@ class MenuTableViewController: UITableViewController {
         case 1:
             switch indexPath.row {
             case 0:
-                navigateToNextViewController(.seminars)
-            case 1:
-                navigateToNextViewController(.lectures)
+                navigateToNextViewController(.classes)
             default:
                 return
             }
@@ -50,10 +48,8 @@ class MenuTableViewController: UITableViewController {
             show(rootAssembly.addFaceAssembly.selectStudentViewController(), sender: nil)
         case .deleteFaces:
             show(rootAssembly.deleteFacesAssembly.deleteFacesViewController(), sender: nil)
-        case .seminars:
-            show(rootAssembly.seminarsAssembly.seminarsSelectGroupViewController(), sender: nil)
-        case .lectures:
-            return
+        case .classes:
+            show(rootAssembly.classesAssembly.classesSelectGroupViewController(), sender: nil)
         }
     }
 }

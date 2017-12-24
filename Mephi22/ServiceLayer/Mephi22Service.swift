@@ -13,23 +13,6 @@ protocol IMephi22Service {
     func getStudents(groupId: String, completionHandler: @escaping ([Student]?, String?) -> Void)
 }
 
-struct Group: Codable {
-    private enum CodingKeys : String, CodingKey {
-        case groupId = "group_id", groupName = "group_name"
-    }
-    var groupId: Int
-    var groupName: String?
-}
-
-struct Student: Codable {
-    private enum CodingKeys : String, CodingKey {
-        case studentId = "id", firstName = "first_name", lastName = "last_name"
-    }
-    var studentId: Int
-    var firstName: String?
-    var lastName: String?
-}
-
 class Mephi22Service: IMephi22Service {
     private let requestSender: IRequestSender
     

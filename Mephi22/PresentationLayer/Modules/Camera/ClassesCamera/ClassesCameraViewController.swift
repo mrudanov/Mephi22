@@ -16,7 +16,7 @@ class ClassesCameraViewController: CameraViewController {
     private var photos: [String] = []
     private var currentCameraIsBack: Bool = true
     
-    private var cameraInteractor: IAFCameraInteractor?
+    private var cameraInteractor: ICameraInteractor?
     
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var flipCameraButton: UIButton!
@@ -31,7 +31,7 @@ class ClassesCameraViewController: CameraViewController {
     }
     
     // MARK: - Initialization
-    public static func initVC(classNumber: String, groupId: String, cameraInteractor: IAFCameraInteractor) -> ClassesCameraViewController {
+    public static func initVC(classNumber: String, groupId: String, cameraInteractor: ICameraInteractor) -> ClassesCameraViewController {
         let cameraVC = UIStoryboard(name: "ClassesCamera", bundle: nil).instantiateViewController(withIdentifier: "ClassesCamera") as! ClassesCameraViewController
         
         cameraVC.classNumber = classNumber
@@ -54,10 +54,10 @@ class ClassesCameraViewController: CameraViewController {
     }
     
     private func recognizeFaces() {
-        guard let classNumber = classNumber, let groupId = groupId else { return }
+        guard let groupId = groupId else { return }
         
         HUD.show(.progress)
-//        cameraInteractor?.addFace(image: image, studentId: studentId, groupId: groupId, completionHandler: addFaceComplition)
+        cameraInteractor?.recognizeFaces(photos, groupId: groupId, completionHandler: recognizeComplition)
     }
     
     // MARK: - Controls buttons
@@ -82,7 +82,10 @@ class ClassesCameraViewController: CameraViewController {
     }
     
     @IBAction func doneButtonPressed(_ sender: UIButton) {
-        super.stopRunningCaptureSession()
+        if photos.count != 0 {
+            super.stopRunningCaptureSession()
+            recognizeFaces()
+        }
     }
     
     @IBAction func takePictureButtonPressed(_ sender: RoundedUIButton) {
@@ -90,30 +93,46 @@ class ClassesCameraViewController: CameraViewController {
     }
     
     // MARK: - Complitions
-    private func addFaceComplition(error: String?) {
+    private func recognizeComplition(personIds: [String]) {
         DispatchQueue.main.async { [weak self] in
             HUD.hide()
-            
-            if let error = error {
-                print(error)
-                self?.showAllert(with: error, tryAgainAction: {
+            guard personIds.count != 0 else {
+                self?.showAllert(with: "No faces recognized", tryAgainAction: {
                     self?.recognizeFaces()
                 })
-            } else {
-                HUD.flash(.success)
-                self?.dismiss(animated: true, completion: nil)
+                return
             }
+            
+            HUD.flash(.success)
+            self?.navigateToCheckPredictions(presonIds: personIds)
         }
+    }
+    
+    // MARK: - Navigation
+    private func navigateToCheckPredictions(presonIds: [String]) {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        guard appDelegate != nil else { return }
+        
+        let checkAssembly = appDelegate!.rootAssembly.checkPredictionsAssembly
+        if let groupId = groupId {
+            let destinationViewController = checkAssembly.checkPredictionsViewController(recognizedStudents: presonIds, groupId: groupId)
+            appDelegate?.rootAssembly.mainNavigationController.show(destinationViewController, sender: nil)
+        }
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Alerts
     private func showAllert(with message: String, tryAgainAction: @escaping() -> Void) {
-        let alert = UIAlertController(title: "Adding face error", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Recognizing face error", message: message, preferredStyle: .alert)
         
-        let tryAgainAction = UIAlertAction(title: "Try again", style: .default, handler: { (action) in
+        let tryAgainAction = UIAlertAction(title: "Try again", style: .default, handler: { _ in
             tryAgainAction()
         })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            super.startRunningCaptureSession()
+            self.photos = []
+        }
         
         alert.addAction(tryAgainAction)
         alert.addAction(cancelAction)
