@@ -123,6 +123,7 @@ class EnrolledGroupsDataSource: IGroupsDataSource {
                 }
             }
             
+            allGroups = []
             delegate?.groupsDidUpdate()
         }
     }

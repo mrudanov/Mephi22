@@ -23,7 +23,7 @@
 		748943E81FDB3FDB0015D853 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748943E71FDB3FDB0015D853 /* MenuTableViewController.swift */; };
 		748943EA1FDBCBCF0015D853 /* RootAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748943E91FDBCBCF0015D853 /* RootAssembly.swift */; };
 		748943EF1FDBCC6D0015D853 /* RoundedUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748943EE1FDBCC6D0015D853 /* RoundedUIButton.swift */; };
-		748943F11FDBCC980015D853 /* AddFaces.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 748943F01FDBCC980015D853 /* AddFaces.storyboard */; };
+		748943F11FDBCC980015D853 /* AFSelectStudent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 748943F01FDBCC980015D853 /* AFSelectStudent.storyboard */; };
 		748943F71FDC48840015D853 /* AFSelectStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748943F61FDC48840015D853 /* AFSelectStudentViewController.swift */; };
 		748943FA1FDC6EAE0015D853 /* Mephi22Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748943F91FDC6EAE0015D853 /* Mephi22Service.swift */; };
 		748943FE1FDC73E00015D853 /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748943FD1FDC73E00015D853 /* RequestSender.swift */; };
@@ -34,6 +34,18 @@
 		74949D021FED411500407925 /* EnrolledGroupsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74949D011FED411500407925 /* EnrolledGroupsDataSource.swift */; };
 		74949D041FED91A900407925 /* EnrolledStudentsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74949D031FED91A900407925 /* EnrolledStudentsDataSource.swift */; };
 		74949D061FEDAC2000407925 /* DeleteFacesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74949D051FEDAC2000407925 /* DeleteFacesInteractor.swift */; };
+		74949D081FEE45BC00407925 /* IGroupsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74949D071FEE45BC00407925 /* IGroupsDataSource.swift */; };
+		74949D0A1FEE45D800407925 /* IStudentsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74949D091FEE45D800407925 /* IStudentsDataSource.swift */; };
+		74949D0D1FEE617B00407925 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74949D0C1FEE617B00407925 /* CameraViewController.swift */; };
+		74949D121FEF067E00407925 /* AFCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74949D111FEF067E00407925 /* AFCameraViewController.swift */; };
+		74949D141FEF99C000407925 /* AFCameraInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74949D131FEF99C000407925 /* AFCameraInteractor.swift */; };
+		74949D161FEFA64100407925 /* AFCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74949D151FEFA64100407925 /* AFCamera.storyboard */; };
+		74949D1A1FEFC2CE00407925 /* SeminarsSelectGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74949D191FEFC2CE00407925 /* SeminarsSelectGroup.storyboard */; };
+		74949D1C1FEFC3AA00407925 /* SeminarsSelectGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74949D1B1FEFC3AA00407925 /* SeminarsSelectGroupViewController.swift */; };
+		74C8ED511FEFD90200A67EB5 /* SeminarsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C8ED501FEFD90200A67EB5 /* SeminarsAssembly.swift */; };
+		74C8ED541FEFDA4400A67EB5 /* CameraAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C8ED531FEFDA4400A67EB5 /* CameraAssembly.swift */; };
+		74C8ED571FEFDE9800A67EB5 /* ClassesCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C8ED561FEFDE9800A67EB5 /* ClassesCamera.storyboard */; };
+		74C8ED591FEFE1E900A67EB5 /* ClassesCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C8ED581FEFE1E900A67EB5 /* ClassesCameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +67,7 @@
 		748943E71FDB3FDB0015D853 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		748943E91FDBCBCF0015D853 /* RootAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAssembly.swift; sourceTree = "<group>"; };
 		748943EE1FDBCC6D0015D853 /* RoundedUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIButton.swift; sourceTree = "<group>"; };
-		748943F01FDBCC980015D853 /* AddFaces.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddFaces.storyboard; sourceTree = "<group>"; };
+		748943F01FDBCC980015D853 /* AFSelectStudent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AFSelectStudent.storyboard; sourceTree = "<group>"; };
 		748943F61FDC48840015D853 /* AFSelectStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFSelectStudentViewController.swift; sourceTree = "<group>"; };
 		748943F91FDC6EAE0015D853 /* Mephi22Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mephi22Service.swift; sourceTree = "<group>"; };
 		748943FD1FDC73E00015D853 /* RequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
@@ -66,6 +78,18 @@
 		74949D011FED411500407925 /* EnrolledGroupsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrolledGroupsDataSource.swift; sourceTree = "<group>"; };
 		74949D031FED91A900407925 /* EnrolledStudentsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrolledStudentsDataSource.swift; sourceTree = "<group>"; };
 		74949D051FEDAC2000407925 /* DeleteFacesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFacesInteractor.swift; sourceTree = "<group>"; };
+		74949D071FEE45BC00407925 /* IGroupsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGroupsDataSource.swift; sourceTree = "<group>"; };
+		74949D091FEE45D800407925 /* IStudentsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IStudentsDataSource.swift; sourceTree = "<group>"; };
+		74949D0C1FEE617B00407925 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		74949D111FEF067E00407925 /* AFCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFCameraViewController.swift; sourceTree = "<group>"; };
+		74949D131FEF99C000407925 /* AFCameraInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFCameraInteractor.swift; sourceTree = "<group>"; };
+		74949D151FEFA64100407925 /* AFCamera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AFCamera.storyboard; sourceTree = "<group>"; };
+		74949D191FEFC2CE00407925 /* SeminarsSelectGroup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SeminarsSelectGroup.storyboard; sourceTree = "<group>"; };
+		74949D1B1FEFC3AA00407925 /* SeminarsSelectGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarsSelectGroupViewController.swift; sourceTree = "<group>"; };
+		74C8ED501FEFD90200A67EB5 /* SeminarsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarsAssembly.swift; sourceTree = "<group>"; };
+		74C8ED531FEFDA4400A67EB5 /* CameraAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAssembly.swift; sourceTree = "<group>"; };
+		74C8ED561FEFDE9800A67EB5 /* ClassesCamera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClassesCamera.storyboard; sourceTree = "<group>"; };
+		74C8ED581FEFE1E900A67EB5 /* ClassesCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesCameraViewController.swift; sourceTree = "<group>"; };
 		7EF5A2C67B97869176C41EF6 /* Pods-Mephi22.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mephi22.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mephi22/Pods-Mephi22.release.xcconfig"; sourceTree = "<group>"; };
 		A18B05463E07886F37487C26 /* Pods_Mephi22.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mephi22.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -145,6 +169,7 @@
 		748943DB1FDAF5BE0015D853 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				74949D0B1FEE615A00407925 /* CameraViewController */,
 				748944051FDD4D5F0015D853 /* DataSources */,
 				748943ED1FDBCC340015D853 /* UIRounded */,
 				748943DE1FDAF5EF0015D853 /* Modules */,
@@ -172,6 +197,7 @@
 		748943DE1FDAF5EF0015D853 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				74C8ED521FEFD92F00A67EB5 /* Camera */,
 				748943E41FDAF7520015D853 /* Menu */,
 				748943E31FDAF74A0015D853 /* Lectures */,
 				748943E21FDAF73E0015D853 /* Seminars */,
@@ -185,9 +211,8 @@
 		748943DF1FDAF6FC0015D853 /* AddFace */ = {
 			isa = PBXGroup;
 			children = (
-				748943F51FDC484A0015D853 /* AFCamera */,
-				748943F41FDC48330015D853 /* AFSelectStudent */,
-				748943F01FDBCC980015D853 /* AddFaces.storyboard */,
+				748943F01FDBCC980015D853 /* AFSelectStudent.storyboard */,
+				748943F61FDC48840015D853 /* AFSelectStudentViewController.swift */,
 				748944061FDD4DBF0015D853 /* AddFaceAssembly.swift */,
 			);
 			path = AddFace;
@@ -214,6 +239,9 @@
 		748943E21FDAF73E0015D853 /* Seminars */ = {
 			isa = PBXGroup;
 			children = (
+				74949D191FEFC2CE00407925 /* SeminarsSelectGroup.storyboard */,
+				74949D1B1FEFC3AA00407925 /* SeminarsSelectGroupViewController.swift */,
+				74C8ED501FEFD90200A67EB5 /* SeminarsAssembly.swift */,
 			);
 			path = Seminars;
 			sourceTree = "<group>";
@@ -259,17 +287,12 @@
 			path = UIRounded;
 			sourceTree = "<group>";
 		};
-		748943F41FDC48330015D853 /* AFSelectStudent */ = {
-			isa = PBXGroup;
-			children = (
-				748943F61FDC48840015D853 /* AFSelectStudentViewController.swift */,
-			);
-			path = AFSelectStudent;
-			sourceTree = "<group>";
-		};
 		748943F51FDC484A0015D853 /* AFCamera */ = {
 			isa = PBXGroup;
 			children = (
+				74949D111FEF067E00407925 /* AFCameraViewController.swift */,
+				74949D131FEF99C000407925 /* AFCameraInteractor.swift */,
+				74949D151FEFA64100407925 /* AFCamera.storyboard */,
 			);
 			path = AFCamera;
 			sourceTree = "<group>";
@@ -291,8 +314,37 @@
 				748944031FDD2FF00015D853 /* StudentsDataSource.swift */,
 				74949D011FED411500407925 /* EnrolledGroupsDataSource.swift */,
 				74949D031FED91A900407925 /* EnrolledStudentsDataSource.swift */,
+				74949D071FEE45BC00407925 /* IGroupsDataSource.swift */,
+				74949D091FEE45D800407925 /* IStudentsDataSource.swift */,
 			);
 			path = DataSources;
+			sourceTree = "<group>";
+		};
+		74949D0B1FEE615A00407925 /* CameraViewController */ = {
+			isa = PBXGroup;
+			children = (
+				74949D0C1FEE617B00407925 /* CameraViewController.swift */,
+			);
+			path = CameraViewController;
+			sourceTree = "<group>";
+		};
+		74C8ED521FEFD92F00A67EB5 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				74C8ED551FEFDE7700A67EB5 /* ClassesCamera */,
+				748943F51FDC484A0015D853 /* AFCamera */,
+				74C8ED531FEFDA4400A67EB5 /* CameraAssembly.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		74C8ED551FEFDE7700A67EB5 /* ClassesCamera */ = {
+			isa = PBXGroup;
+			children = (
+				74C8ED561FEFDE9800A67EB5 /* ClassesCamera.storyboard */,
+				74C8ED581FEFE1E900A67EB5 /* ClassesCameraViewController.swift */,
+			);
+			path = ClassesCamera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,10 +409,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74949D1A1FEFC2CE00407925 /* SeminarsSelectGroup.storyboard in Resources */,
 				748943E61FDB3A500015D853 /* Menu.storyboard in Resources */,
 				741ABD261FEC1E2C00E4B97F /* DeleteFaces.storyboard in Resources */,
-				748943F11FDBCC980015D853 /* AddFaces.storyboard in Resources */,
+				74949D161FEFA64100407925 /* AFCamera.storyboard in Resources */,
+				748943F11FDBCC980015D853 /* AFSelectStudent.storyboard in Resources */,
 				748943D41FDAF27D0015D853 /* LaunchScreen.storyboard in Resources */,
+				74C8ED571FEFDE9800A67EB5 /* ClassesCamera.storyboard in Resources */,
 				748943D11FDAF27D0015D853 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,14 +483,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74949D1C1FEFC3AA00407925 /* SeminarsSelectGroupViewController.swift in Sources */,
 				741ABD281FEC1E6900E4B97F /* DeleteFacesViewController.swift in Sources */,
 				748944041FDD2FF00015D853 /* StudentsDataSource.swift in Sources */,
+				74949D0A1FEE45D800407925 /* IStudentsDataSource.swift in Sources */,
 				748944021FDC8AFA0015D853 /* GroupsDataSource.swift in Sources */,
 				748944001FDC83E40015D853 /* RequestFactory.swift in Sources */,
+				74C8ED591FEFE1E900A67EB5 /* ClassesCameraViewController.swift in Sources */,
+				74949D0D1FEE617B00407925 /* CameraViewController.swift in Sources */,
+				74C8ED541FEFDA4400A67EB5 /* CameraAssembly.swift in Sources */,
 				748943FE1FDC73E00015D853 /* RequestSender.swift in Sources */,
 				741ABD2F1FEC64BA00E4B97F /* KairosRequest.swift in Sources */,
 				74949D041FED91A900407925 /* EnrolledStudentsDataSource.swift in Sources */,
 				748943F71FDC48840015D853 /* AFSelectStudentViewController.swift in Sources */,
+				74949D141FEF99C000407925 /* AFCameraInteractor.swift in Sources */,
 				748943CA1FDAF27D0015D853 /* AppDelegate.swift in Sources */,
 				748943EA1FDBCBCF0015D853 /* RootAssembly.swift in Sources */,
 				741ABD311FEC64D400E4B97F /* IRequest.swift in Sources */,
@@ -443,8 +504,11 @@
 				748944071FDD4DBF0015D853 /* AddFaceAssembly.swift in Sources */,
 				74949D021FED411500407925 /* EnrolledGroupsDataSource.swift in Sources */,
 				741ABD2A1FEC1F2000E4B97F /* DeleteFacesAssembly.swift in Sources */,
+				74C8ED511FEFD90200A67EB5 /* SeminarsAssembly.swift in Sources */,
 				7415826B1FDD7FCB00A7DC97 /* MenuAssembly.swift in Sources */,
+				74949D081FEE45BC00407925 /* IGroupsDataSource.swift in Sources */,
 				748943E81FDB3FDB0015D853 /* MenuTableViewController.swift in Sources */,
+				74949D121FEF067E00407925 /* AFCameraViewController.swift in Sources */,
 				748943EF1FDBCC6D0015D853 /* RoundedUIButton.swift in Sources */,
 				74949D061FEDAC2000407925 /* DeleteFacesInteractor.swift in Sources */,
 				741ABD331FEC668000E4B97F /* FaceRecognitionService.swift in Sources */,

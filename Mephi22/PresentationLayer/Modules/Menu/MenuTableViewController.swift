@@ -51,7 +51,7 @@ class MenuTableViewController: UITableViewController {
         case .deleteFaces:
             show(rootAssembly.deleteFacesAssembly.deleteFacesViewController(), sender: nil)
         case .seminars:
-            return
+            show(rootAssembly.seminarsAssembly.seminarsSelectGroupViewController(), sender: nil)
         case .lectures:
             return
         }

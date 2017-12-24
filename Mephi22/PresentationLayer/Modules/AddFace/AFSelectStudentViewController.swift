@@ -9,11 +9,6 @@
 import UIKit
 import PKHUD
 
-struct StudentDisplayModel {
-    var studentId: String
-    var studentName: String?
-}
-
 class AFSelectStudentViewController: UIViewController {
     @IBOutlet weak var selectGroupPicker: UIPickerView!
     @IBOutlet weak var selectStudentPicker: UIPickerView!
@@ -23,7 +18,7 @@ class AFSelectStudentViewController: UIViewController {
     
     // MARK: - Initialization
     public static func initVC(groupsDataSource: IGroupsDataSource, studentsDataSource: IStudentsDataSource) -> AFSelectStudentViewController {
-        let selectStudentVC = UIStoryboard(name: "AddFaces", bundle: nil).instantiateViewController(withIdentifier: "AFSelectStudent") as! AFSelectStudentViewController
+        let selectStudentVC = UIStoryboard(name: "AFSelectStudent", bundle: nil).instantiateViewController(withIdentifier: "AFSelectStudent") as! AFSelectStudentViewController
         selectStudentVC.groupsDataSource = groupsDataSource
         selectStudentVC.studentsDataSource = studentsDataSource
         return selectStudentVC
@@ -49,7 +44,7 @@ class AFSelectStudentViewController: UIViewController {
         selectGroupPicker.dataSource = self
         
         selectStudentPicker.delegate = self
-        selectGroupPicker.delegate = self
+        selectStudentPicker.dataSource = self
     }
     
     // MARK: - Alerts
@@ -64,6 +59,23 @@ class AFSelectStudentViewController: UIViewController {
         alert.addAction(tryAgainAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Navigation
+    @IBAction func nextButtonPressed(_ sender: RoundedUIButton) {
+        navigateToAFCameraVieController()
+    }
+    
+    private func navigateToAFCameraVieController() {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        guard appDelegate != nil else { return }
+        
+        let cameraAssembly = appDelegate!.rootAssembly.cameraAssembly
+        
+        if let studentId = studentsDataSource?.studentIdAt(selectStudentPicker.selectedRow(inComponent: 0)),
+            let groupId = groupsDataSource?.groupIdAt(selectGroupPicker.selectedRow(inComponent: 0)) {
+            present(cameraAssembly.addFacesCameraViewController(groupId: groupId, studentId: studentId), animated: true)
+        }
     }
 }
 

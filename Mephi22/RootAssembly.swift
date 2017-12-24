@@ -15,21 +15,25 @@ class RootAssembly {
     private let faceRecognitionService: IFaceRecognitionService
     private let requestSender: IRequestSender
     
+    let mainNavigationController: UINavigationController
+    let addFaceAssembly: AddFaceAssembly
+    let menuAssembly: MenuAssembly
+    let deleteFacesAssembly: DeleteFacesAssembly
+    let cameraAssembly: CameraAssembly
+    let seminarsAssembly: SeminarsAssembly
+    
     init() {
         requestSender = RequestSender()
         
         mephi22Service = Mephi22Service(requestSender: requestSender)
         faceRecognitionService = KairosFaceRecognitionService(requestSender: requestSender)
         
+        menuAssembly = MenuAssembly()
         addFaceAssembly = AddFaceAssembly(mephi22Service: mephi22Service)
         deleteFacesAssembly = DeleteFacesAssembly(mephi22Service: mephi22Service, faceRecognitionService: faceRecognitionService)
-        menuAssembly = MenuAssembly()
+        seminarsAssembly = SeminarsAssembly(mephi22Service: mephi22Service, faceRecognitionService: faceRecognitionService)
+        cameraAssembly = CameraAssembly(faceRecognitionService: faceRecognitionService)
         
         mainNavigationController = menuAssembly.menuNavigationController()
     }
-    
-    let mainNavigationController: UINavigationController
-    let addFaceAssembly: AddFaceAssembly
-    let menuAssembly: MenuAssembly
-    let deleteFacesAssembly: DeleteFacesAssembly
 }

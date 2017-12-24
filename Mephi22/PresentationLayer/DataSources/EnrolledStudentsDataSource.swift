@@ -126,6 +126,7 @@ class EnrolledStudentsDataSource: IStudentsDataSource {
                 }
             }
             
+            allStudents = []
             delegate?.studentsDidUpdate()
         }
     }

@@ -49,7 +49,7 @@
                                 </constraints>
                             </pickerView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="P07-TX-s6b">
-                                <rect key="frame" x="8" y="530" width="304" height="30"/>
+                                <rect key="frame" x="8" y="526" width="304" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1p-yC-6Ou" customClass="RoundedUIButton" customModule="Mephi22" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="147" height="30"/>
@@ -57,7 +57,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="DlR-zV-QhV"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="Delete student">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -76,7 +76,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Pe3-lH-HEG"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="Delete group">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -98,7 +98,7 @@
                             <constraint firstItem="P07-TX-s6b" firstAttribute="leading" secondItem="ALc-oX-qOR" secondAttribute="leading" constant="8" id="2Ti-GE-PDa"/>
                             <constraint firstItem="22P-Q5-ZrM" firstAttribute="top" secondItem="l4n-v4-TSC" secondAttribute="bottom" id="4eq-CY-8Tg"/>
                             <constraint firstItem="l4n-v4-TSC" firstAttribute="top" secondItem="uUg-v5-3VL" secondAttribute="bottom" id="5am-A0-mDe"/>
-                            <constraint firstItem="ALc-oX-qOR" firstAttribute="bottom" secondItem="P07-TX-s6b" secondAttribute="bottom" constant="8" id="7Gv-Mt-Xdg"/>
+                            <constraint firstItem="ALc-oX-qOR" firstAttribute="bottom" secondItem="P07-TX-s6b" secondAttribute="bottom" constant="12" id="7Gv-Mt-Xdg"/>
                             <constraint firstItem="P07-TX-s6b" firstAttribute="centerX" secondItem="ALc-oX-qOR" secondAttribute="centerX" id="Bak-ZQ-Waf"/>
                             <constraint firstItem="uUg-v5-3VL" firstAttribute="leading" secondItem="ALc-oX-qOR" secondAttribute="leading" id="GBT-tC-PdE"/>
                             <constraint firstItem="uUg-v5-3VL" firstAttribute="trailing" secondItem="ALc-oX-qOR" secondAttribute="trailing" id="NPB-D8-oGT"/>

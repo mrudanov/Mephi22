@@ -8,20 +8,6 @@
 
 import Foundation
 
-protocol IStudentsDataSource {
-    weak var delegate: StudentsDataSourceDelegate? { get set }
-    
-    func getStudentsFromGroup(_ : String)
-    func studentNameAt(_ : Int) -> String
-    func studentIdAt(_ : Int) -> String
-    func numberOfStudents() -> Int
-}
-
-protocol StudentsDataSourceDelegate: class {
-    func studentsDidUpdate()
-    func recievedStudentsLoadError(errorMessage: String)
-}
-
 class StudentsDataSource: IStudentsDataSource {
     private struct StudentDataModel {
         var studentId: String

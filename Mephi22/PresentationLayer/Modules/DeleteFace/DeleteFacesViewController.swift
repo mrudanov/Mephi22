@@ -48,7 +48,7 @@ class DeleteFacesViewController: UIViewController {
         selectGroupPicker.dataSource = self
         
         selectStudentPicker.delegate = self
-        selectGroupPicker.delegate = self
+        selectStudentPicker.dataSource = self
     }
     
     // MARK: - Buttons
@@ -92,10 +92,12 @@ class DeleteFacesViewController: UIViewController {
     private func deleteGroupCompletion(groupId: String, errorMessage: String?) {
         DispatchQueue.main.async {
             if let errorMessage = errorMessage {
+                HUD.hide()
                 self.showAllert(title: "Can't delete group!",
                                 message: errorMessage,
-                                actionTitle: "Try again!",
-                                style: .default) {
+                                actionTitle: "Try again",
+                                style: .destructive) {
+                                    HUD.show(.progress)
                                     self.deleteFaceInteractor?.daleteGroupFromRecognizer(groupId) { error in
                                         self.deleteGroupCompletion(groupId: groupId, errorMessage: errorMessage)
                                     }
@@ -109,10 +111,12 @@ class DeleteFacesViewController: UIViewController {
     private func deleteStudentCompletion(studentId: String,groupId: String, errorMessage: String?) {
         DispatchQueue.main.async {
             if let errorMessage = errorMessage {
+                HUD.hide()
                 self.showAllert(title: "Can't delete student!",
                                 message: errorMessage,
-                                actionTitle: "Try again!",
-                                style: .default) {
+                                actionTitle: "Try again",
+                                style: .destructive) {
+                                    HUD.show(.progress)
                                     self.deleteFaceInteractor?.deleteStudentFromRecognizer(studentId, groupId: groupId) { error in
                                         self.deleteStudentCompletion(studentId: studentId, groupId: groupId, errorMessage: error)
                                     }

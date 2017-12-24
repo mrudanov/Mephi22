@@ -10,7 +10,7 @@ import Foundation
 
 protocol IDeleteFaceInteractor {
     func deleteStudentFromRecognizer(_ studentId: String, groupId: String, completionHandler: @escaping(String?) -> Void)
-    func daleteGroupFromRecognizer(_ groupId: String, completionHandler: @escaping(_ error: String?) -> Void)
+    func daleteGroupFromRecognizer(_ groupId: String, completionHandler: @escaping(String?) -> Void)
 }
 
 class DeleteFaceInteractor:IDeleteFaceInteractor {

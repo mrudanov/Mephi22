@@ -8,20 +8,6 @@
 
 import Foundation
 
-protocol IGroupsDataSource {
-    weak var delegate: GroupsDataSourceDelegate? { get set }
-    
-    func getGroups()
-    func groupNameAt(_ : Int) -> String
-    func groupIdAt(_ : Int) -> String
-    func numberOfGroups() -> Int
-}
-
-protocol GroupsDataSourceDelegate: class {
-    func groupsDidUpdate()
-    func recievedGroupLoadError(errorMessage: String)
-}
-
 class GroupsDataSource: IGroupsDataSource {
     private struct GroupDataModel {
         var groupId: String

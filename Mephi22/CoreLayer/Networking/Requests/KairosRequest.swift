@@ -15,7 +15,7 @@ enum KairosRequestType: String {
     case enroll = "enroll"
     case recognize = "recognize"
     case removePerson = "gallery/remove_subject"
-    case removeGallary = "gallary/remove"
+    case removeGallary = "gallery/remove"
 }
 
 class KairosRequest: IRequest {

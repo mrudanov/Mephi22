@@ -48,7 +48,7 @@ class RequestSender: IRequestSender {
                         completionHandler(Result.success(model))
                     }
                     catch {
-                        completionHandler(Result.error("Can't parse response!"))
+                        completionHandler(Result.error("Error getting response"))
                     }
                 } else {
                     completionHandler(Result.error("No data recieved!"))
