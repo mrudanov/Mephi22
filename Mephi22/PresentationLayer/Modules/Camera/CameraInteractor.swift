@@ -24,7 +24,7 @@ class CameraInteractor: ICameraInteractor {
     private var responsesNeeded: Int = 0
     private var recognizedPersons: [String] = []
     
-    private let globalQueue = DispatchQueue.global(qos: .userInitiated)
+    private let globalQueue = DispatchQueue(label: "ru.mephi22.counters-access")
     
     // MARK: - Initialization
     init(faceRecognitionService: IFaceRecognitionService) {
