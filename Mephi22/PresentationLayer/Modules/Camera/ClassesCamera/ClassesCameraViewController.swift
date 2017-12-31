@@ -47,7 +47,17 @@ class ClassesCameraViewController: CameraViewController {
             return
         }
         
-        if let imageData = photo.fileDataRepresentation() {
+        guard let cgImage = photo.cgImageRepresentation()?.takeUnretainedValue() else { return }
+        
+        var image = UIImage()
+        
+        if currentCameraIsBack {
+            image = UIImage(cgImage: cgImage, scale: 1.0, orientation: .up)
+        } else {
+            image = UIImage(cgImage: cgImage, scale: 1.0, orientation: .right)
+        }
+        
+        if let imageData = UIImageJPEGRepresentation(image, 1.0) {
             let base64Image = imageData.base64EncodedString()
             photos.append(base64Image)
         }
