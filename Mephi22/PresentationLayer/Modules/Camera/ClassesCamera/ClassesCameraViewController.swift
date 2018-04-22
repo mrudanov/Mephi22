@@ -57,7 +57,7 @@ class ClassesCameraViewController: CameraViewController {
             image = UIImage(cgImage: cgImage, scale: 1.0, orientation: .right)
         }
         
-        if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+        if let imageData = UIImageJPEGRepresentation(image, 0.8) {
             let base64Image = imageData.base64EncodedString()
             photos.append(base64Image)
         }
@@ -103,7 +103,7 @@ class ClassesCameraViewController: CameraViewController {
     }
     
     // MARK: - Complitions
-    private func recognizeComplition(personIds: [String]) {
+    private func recognizeComplition(personIds: [(String, Float)]) {
         DispatchQueue.main.async { [weak self] in
             HUD.hide()
             guard personIds.count != 0 else {
@@ -119,7 +119,7 @@ class ClassesCameraViewController: CameraViewController {
     }
     
     // MARK: - Navigation
-    private func navigateToCheckPredictions(presonIds: [String]) {
+    private func navigateToCheckPredictions(presonIds: [(String, Float)]) {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         guard appDelegate != nil else { return }
         

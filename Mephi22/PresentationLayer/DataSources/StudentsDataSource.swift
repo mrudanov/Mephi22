@@ -49,10 +49,12 @@ class StudentsDataSource: IStudentsDataSource {
     }
     
     func studentNameAt(_ index: Int) -> String {
+        guard index < numberOfStudents() else { return "Unknown" }
         return students[index].studentName ?? "Unknown"
     }
     
     func studentIdAt(_ index: Int) -> String {
+        guard index < numberOfStudents() else { return "Unknown" }
         return students[index].studentId
     }
     

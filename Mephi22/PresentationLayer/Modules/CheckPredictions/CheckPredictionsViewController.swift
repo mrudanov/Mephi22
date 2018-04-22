@@ -17,13 +17,13 @@ class CheckPredictionsViewController: UIViewController {
     }
     
     private var studentsDataSource: IStudentsDataSource?
-    private var students: [StudentDisplayModel] = []
-    private var recognizedStudents: [String] = []
+    private var students: [(StudentDisplayModel, Float)] = []
+    private var recognizedStudents: [(String, Float)] = []
     private var groupId: String?
     
     @IBOutlet weak var studentsTableView: UITableView!
     
-    public static func initVC(studentsDataSource: IStudentsDataSource, recognizedStudents: [String], groupId: String) -> CheckPredictionsViewController {
+    public static func initVC(studentsDataSource: IStudentsDataSource, recognizedStudents: [(String, Float)], groupId: String) -> CheckPredictionsViewController {
         let checkPredictionsVC = UIStoryboard(name: "CheckPredictions", bundle: nil).instantiateViewController(withIdentifier: "CheckPredictions") as! CheckPredictionsViewController
         checkPredictionsVC.studentsDataSource = studentsDataSource
         checkPredictionsVC.groupId = groupId
@@ -52,9 +52,17 @@ class CheckPredictionsViewController: UIViewController {
         for i in 0..<studentsDataSource.numberOfStudents() {
             let studentId = studentsDataSource.studentIdAt(i)
             let studentName = studentsDataSource.studentNameAt(i)
-            let isChecked = recognizedStudents.index(of: studentId) != nil
             
-            let studentToAppend = StudentDisplayModel(studentId: studentId, studentName: studentName, checked: isChecked)
+            var isChecked = false
+            var confidence: Float = -1.0
+            if let index = recognizedStudents.index(where: { (id, _) -> Bool in id == studentId }) {
+                isChecked = true
+                (_, confidence) = recognizedStudents[index]
+            }
+            
+            let studentToAppend = (
+                StudentDisplayModel(studentId: studentId, studentName: studentName, checked: isChecked),
+                confidence)
             students.append(studentToAppend)
         }
         
@@ -89,7 +97,7 @@ class CheckPredictionsViewController: UIViewController {
 
 extension CheckPredictionsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        students[indexPath.row].checked = !students[indexPath.row].checked
+        students[indexPath.row].0.checked = !students[indexPath.row].0.checked
         studentsTableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
@@ -105,8 +113,10 @@ extension CheckPredictionsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "StudentCell")
-        cell.textLabel?.text = students[indexPath.row].studentName
-        cell.accessoryType = students[indexPath.row].checked ? .checkmark : .none
+        let text = "\(students[indexPath.row].0.studentName ?? "Unknown")"
+        print(students[indexPath.row].1)
+        cell.textLabel?.text = text
+        cell.accessoryType = students[indexPath.row].0.checked ? .checkmark : .none
 
         return cell
     }

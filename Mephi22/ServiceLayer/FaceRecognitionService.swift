@@ -17,7 +17,7 @@ protocol IFaceRecognitionService {
     func getFacialGroups(completionHandler: @escaping([String]?, String?) -> Void)
     func getPersonsOfFacialGroup(groupId: String, completionHandler: @escaping([String]?, String?) -> Void)
     
-    func recognizePerson(image: String, groupId: String, completionHandler: @escaping([String]?, String?) -> Void)
+    func recognizePerson(image: String, groupId: String, completionHandler: @escaping([(String, Float)]?, String?) -> Void)
 }
 
 class KairosFaceRecognitionService: IFaceRecognitionService {
@@ -89,18 +89,18 @@ class KairosFaceRecognitionService: IFaceRecognitionService {
         }
     }
     
-    func recognizePerson(image: String, groupId: String, completionHandler: @escaping([String]?, String?) -> Void) {
+    func recognizePerson(image: String, groupId: String, completionHandler: @escaping([(String, Float)]?, String?) -> Void) {
         let request = RequestsFactory.KairosRequests.recognizeFaceRequest(image: image, gallaryId: groupId)
         requestSender.send(request: request, method: .post) { (result: Result<RecognitionResult>) in
             switch result {
             case .error(let error):
                 completionHandler(nil, error)
             case .success(let recognitionResult):
-                var detectedPersons: [String] = []
+                var detectedPersons: [(String, Float)] = []
                 
                 for image in recognitionResult.images {
-                    if let personId = image.candidates.first?.personId {
-                        detectedPersons.append(personId)
+                    if let personId = image.candidates.first?.personId, let confidence = image.candidates.first?.confidence {
+                        detectedPersons.append((personId, confidence))
                     }
                 }
                 

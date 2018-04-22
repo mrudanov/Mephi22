@@ -45,10 +45,12 @@ class GroupsDataSource: IGroupsDataSource {
     }
     
     func groupNameAt(_ index: Int) -> String {
+        guard index < numberOfGroups() else { return "Unknown" }
         return groups[index].groupName ?? "Unknown"
     }
     
     func groupIdAt(_ index: Int) -> String {
+        guard index < numberOfGroups() else { return "Unknown" }
         return groups[index].groupId
     }
     

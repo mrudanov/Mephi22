@@ -17,7 +17,7 @@ class CheckPredictionsAssembly {
         self.faceRecognitionService = faceRecognitionService
     }
     
-    func checkPredictionsViewController(recognizedStudents: [String], groupId: String) -> CheckPredictionsViewController {
+    func checkPredictionsViewController(recognizedStudents: [(String, Float)], groupId: String) -> CheckPredictionsViewController {
         let studentsDataSource = StudentsDataSource(service: mephi22Service)
         
         return CheckPredictionsViewController.initVC(studentsDataSource: studentsDataSource, recognizedStudents: recognizedStudents, groupId: groupId)
