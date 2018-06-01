@@ -45,7 +45,7 @@ struct RecognitionImage: Codable {
     private enum CodingKeys : String, CodingKey {
         case candidates = "candidates"
     }
-    var candidates: [RecognitionCandidate]
+    var candidates: [RecognitionCandidate]?
 }
 
 struct RecognitionResult: Codable {

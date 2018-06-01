@@ -99,7 +99,7 @@ class KairosFaceRecognitionService: IFaceRecognitionService {
                 var detectedPersons: [(String, Float)] = []
                 
                 for image in recognitionResult.images {
-                    if let personId = image.candidates.first?.personId, let confidence = image.candidates.first?.confidence {
+                    if let personId = image.candidates?.first?.personId, let confidence = image.candidates?.first?.confidence {
                         detectedPersons.append((personId, confidence))
                     }
                 }
