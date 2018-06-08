@@ -20,9 +20,12 @@ struct RequestsFactory {
     }
     
     struct KairosRequests {
+        static let appId: String = ""
+        static let appKey: String = ""
+        
         static func getGallariesRequest() -> IRequest {
-            return KairosRequest(appId: "fa41e8ac",
-                                 appKey: "72487a887ee6d2afbe8b0ff0032d2a2e",
+            return KairosRequest(appId: appId,
+                                 appKey: appKey,
                                  type: .gallaries,
                                  image: nil,
                                  subjectId: nil,
@@ -30,8 +33,8 @@ struct RequestsFactory {
         }
         
         static func getPersonsRequest(gallaryId: String) -> IRequest {
-            return KairosRequest(appId: "fa41e8ac",
-                                 appKey: "72487a887ee6d2afbe8b0ff0032d2a2e",
+            return KairosRequest(appId: appId,
+                                 appKey: appKey,
                                  type: .persons,
                                  image: nil,
                                  subjectId: nil,
@@ -39,8 +42,8 @@ struct RequestsFactory {
         }
         
         static func enrollRequest(subjectId: String, image: String, gallaryId: String) -> IRequest {
-            return KairosRequest(appId: "fa41e8ac",
-                                 appKey: "72487a887ee6d2afbe8b0ff0032d2a2e",
+            return KairosRequest(appId: appId,
+                                 appKey: appKey,
                                  type: .enroll,
                                  image: image,
                                  subjectId: subjectId,
@@ -48,8 +51,8 @@ struct RequestsFactory {
         }
         
         static func recognizeFaceRequest(image: String, gallaryId: String) -> IRequest {
-            return KairosRequest(appId: "fa41e8ac",
-                                 appKey: "72487a887ee6d2afbe8b0ff0032d2a2e",
+            return KairosRequest(appId: appId,
+                                 appKey: appKey,
                                  type: .recognize,
                                  image: image,
                                  subjectId: nil,
@@ -57,8 +60,8 @@ struct RequestsFactory {
         }
         
         static func deleteGallaryRequest(_ gallaryId: String) -> IRequest {
-            return KairosRequest(appId: "fa41e8ac",
-                                 appKey: "72487a887ee6d2afbe8b0ff0032d2a2e",
+            return KairosRequest(appId: appId,
+                                 appKey: appKey,
                                  type: .removeGallary,
                                  image: nil,
                                  subjectId: nil,
@@ -66,8 +69,8 @@ struct RequestsFactory {
         }
         
         static func deletePersonRequest(subjectId: String, gallaryId: String) -> IRequest {
-            return KairosRequest(appId: "fa41e8ac",
-                                 appKey: "72487a887ee6d2afbe8b0ff0032d2a2e",
+            return KairosRequest(appId: appId,
+                                 appKey: appKey,
                                  type: .removePerson,
                                  image: nil,
                                  subjectId: subjectId,
